@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://goldendynasty.co.za/</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/og-image.png</image:loc>
+      <image:title>Golden Dynasty SA - Engineering & Construction Excellence</image:title>
+      <image:caption>Leading South African engineering and construction company</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/about</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/images/golden-dynasty-logo.png</image:loc>
+      <image:title>About Golden Dynasty SA</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/services</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/images/design-mode/construction-site-with-engineers-and-project-manag.jpg</image:loc>
+      <image:title>Engineering Services</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Products Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/products</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/images/design-mode/electrical-powerlines-and-transmission-towers-at-s.jpg</image:loc>
+      <image:title>Powerline Products</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Projects Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/projects</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/images/design-mode/community-development-project-with-people-and-infr.jpg</image:loc>
+      <image:title>Our Projects</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Social Development Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/social-development</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/images/design-mode/community-development-project-with-people-and-infr.jpg</image:loc>
+      <image:title>Social Development Initiatives</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Recruitment Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/recruitment</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/contact</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/og-image.png</image:loc>
+      <image:title>Contact Golden Dynasty SA</image:title>
+    </image:image>
+  </url>
+  
+  <!-- Accreditation Page -->
+  <url>
+    <loc>https://goldendynasty.co.za/accreditation</loc>
+    <lastmod>2024-01-25T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/iso-9001-certificate-document.jpg</image:loc>
+      <image:title>ISO 9001 Certification</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/cidb-contractor-certificate-document.jpg</image:loc>
+      <image:title>CIDB Contractor Certificate</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://goldendynasty.co.za/bee-certificate-b-bbee-document.jpg</image:loc>
+      <image:title>B-BBEE Certificate</image:title>
+    </image:image>
+  </url>
+  
+</urlset>

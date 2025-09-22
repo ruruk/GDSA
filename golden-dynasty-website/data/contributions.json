@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "title": "Bright Start Day Care Centre Support",
+    "description": "Provided financial support of R41,047.85 to Bright Start Day Care Centre in Mogwase, easing their financial burden and enabling them to continue providing safe, high-quality day care to children in the community.",
+    "date": "2024",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR71l7uFURurcFHUEZTfUckELQrxz5tMv7nhQ&s",
+    "category": "Education",
+    "amount": "R41,047.85"
+  },
+  {
+    "id": 2,
+    "title": "Nelson Mandela Children's Fund Partnership",
+    "description": "Donated R30,000 to the Nelson Mandela Children's Fund, contributing 100% towards socio-economic development and supporting vulnerable children and families, particularly black children with disabilities in disadvantaged communities.",
+    "date": "December 2023",
+    "image": "https://assets.isu.pub/document-structure/210723172412-9d4a2f96b72faba1a19f7f53870543d9/v1/985715400fb713ba660549fc95409563.jpeg?width=720&quality=85%2C50",
+    "category": "Child Welfare",
+    "amount": "R30,000"
+  },
+  {
+    "id": 3,
+    "title": "Helderberg Uitreik Heaven-on-Earth Project",
+    "description": "Contributed R21,500 to support the Heaven-on-Earth Project's early remedial intervention program for learners aged 4-6 years, helping 2,662 learners prepare for successful school careers through specialized workbooks and training.",
+    "date": "December 2024",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYDgN84zCSze9pTiOJhsozMFkONFrh9hJA9Q&s",
+    "category": "Education",
+    "amount": "R21,500"
+  },
+  {
+    "id": 4,
+    "title": "SANTA Tuberculosis Awareness Campaign",
+    "description": "Donated R30,000 to the South African National Tuberculosis Association (SANTA) to support their DOTS program, TB awareness campaigns, and community health initiatives including food gardens and feeding schemes.",
+    "date": "January 2024",
+    "image": "https://santawc.co.za/wp-content/uploads/elementor/thumbs/7-okbuoneac1kkmmc1b9ax5d9bpk1tarqt20blwg57qg.jpg",
+    "category": "Healthcare",
+    "amount": "R30,000"
+  },
+  {
+    "id": 5,
+    "title": "Red Cross Flood Relief Support",
+    "description": "Provided R28,000 to the South African Red Cross Society for flood relief efforts in Ladysmith and Port Shepstone, directly benefiting previously disadvantaged communities affected by natural disasters.",
+    "date": "February 2024",
+    "image": "https://piroi.croix-rouge.fr/wp-content/uploads/2023/04/Operation-de-reponse-cyclone-FREDDY-Mozambique.png",
+    "category": "Disaster Relief",
+    "amount": "R28,000"
+  }
+]
