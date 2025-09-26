@@ -54,8 +54,8 @@ export default function SocialDevelopment() {
                     key={contribution.id}
                     className={`flex-shrink-0 transition-all duration-700 ease-out ${
                       isActive
-                        ? "w-80 h-[330px] scale-105 z-10"
-                        : "w-72 h-[320px] scale-90 opacity-60"
+                        ? "w-80 h-[360px] scale-105 z-10"
+                        : "w-72 h-[350px] scale-90 opacity-60"
                     }`}
                   >
                     <GdsaCard
@@ -87,9 +87,6 @@ export default function SocialDevelopment() {
                             >
                               {contribution.category}
                             </Badge>
-                            <span className="text-xs text-muted-foreground font-medium">
-                              {contribution.date}
-                            </span>
                           </div>
                           <h4
                             className={`font-semibold mb-2 line-clamp-2 ${

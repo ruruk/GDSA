@@ -1,295 +1,289 @@
-import { Briefcase, Calendar, MapPin, Mail, Clock, CheckCircle } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Header from "@/components/global/header";
+import Footer from "@/components/global/footer";
+import PageHeader from "@/components/global/page-header";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { MapPin, Clock, Mail, Briefcase, Users, Zap } from "lucide-react";
 
-const jobPostings = [
+const jobListings = [
   {
     id: 1,
-    title: "Senior Electrical Engineer",
-    department: "Engineering",
-    location: "Johannesburg, South Africa",
+    title: "Project Manager",
+    department: "Operations",
+    location: "South Africa",
     type: "Full-time",
     datePosted: "2024-01-15",
-    description:
-      "Lead electrical design projects for transmission and distribution systems. Experience with OPGW cables and high-voltage systems required.",
-    requirements: ["Bachelor's degree in Electrical Engineering", "5+ years experience", "ECSA registration preferred"],
     isActive: true,
+    description:
+      "Lead and manage electrical engineering projects from conception to completion. Oversee OPGW and ADSS cable installations, coordinate with clients, and ensure project delivery within scope, time, and budget.",
+    requirements: [
+      "Bachelor's degree in Engineering or Project Management",
+      "5+ years project management experience",
+      "PMP certification preferred",
+      "Experience with electrical infrastructure projects",
+    ],
   },
   {
     id: 2,
-    title: "Project Manager - Fiber Optic Installation",
-    department: "Operations",
-    location: "Cape Town, South Africa",
+    title: "Site Supervisor",
+    department: "Field Operations",
+    location: "South Africa",
     type: "Full-time",
-    datePosted: "2024-01-10",
-    description:
-      "Manage fiber optic installation projects from planning to commissioning. Experience with Eskom projects and OPGW systems essential.",
-    requirements: ["Project Management certification", "3+ years fiber optic experience", "Valid driver's license"],
+    datePosted: "2024-01-12",
     isActive: true,
+    description:
+      "Supervise on-site installation and maintenance activities for power line projects. Ensure safety compliance, quality standards, and coordinate field teams for optimal project execution.",
+    requirements: [
+      "Technical diploma in Electrical Engineering",
+      "3+ years supervisory experience in electrical field work",
+      "Safety certification and training",
+      "Strong leadership and communication skills",
+    ],
   },
   {
     id: 3,
-    title: "Quality Assurance Specialist",
-    department: "Quality Control",
-    location: "Durban, South Africa",
+    title: "Sales Representative",
+    department: "Sales",
+    location: "South Africa",
     type: "Full-time",
-    datePosted: "2024-01-08",
-    description:
-      "Ensure compliance with ISO 9001:2015 standards and IEC specifications. Conduct routine and type testing of electrical products.",
-    requirements: ["Quality Management experience", "ISO 9001 knowledge", "Electrical testing background"],
+    datePosted: "2024-01-10",
     isActive: true,
+    description:
+      "Develop and maintain relationships with utility companies and industrial clients. Promote our range of electrical products including OPGW cables, insulators, and power line equipment.",
+    requirements: [
+      "Bachelor's degree in Business or Engineering",
+      "2+ years sales experience in industrial/electrical sector",
+      "Strong technical product knowledge",
+      "Excellent communication and negotiation skills",
+    ],
   },
   {
     id: 4,
-    title: "Sales Engineer - Power Line Products",
-    department: "Sales",
-    location: "Pretoria, South Africa",
+    title: "Financial Assistant",
+    department: "Finance",
+    location: "South Africa",
     type: "Full-time",
-    datePosted: "2024-01-05",
-    description:
-      "Drive sales of transmission line products including conductors, insulators, and hardware fittings. Build relationships with utility companies.",
-    requirements: ["Engineering degree", "Sales experience", "Technical product knowledge"],
+    datePosted: "2024-01-08",
     isActive: true,
+    description:
+      "Support financial operations including accounts payable/receivable, budget tracking, and financial reporting. Assist with project costing and financial analysis for engineering projects.",
+    requirements: [
+      "Diploma in Accounting or Finance",
+      "2+ years experience in financial administration",
+      "Proficiency in accounting software and Excel",
+      "Attention to detail and accuracy",
+    ],
   },
   {
     id: 5,
-    title: "Field Technician - OPGW Installation",
+    title: "Experienced Climbers",
     department: "Field Operations",
-    location: "Multiple Locations",
-    type: "Contract",
-    datePosted: "2024-01-03",
-    description:
-      "Install and commission OPGW cables on transmission lines. Work on various voltage levels from 33kV to 765kV.",
-    requirements: ["Electrical trade qualification", "Height work certification", "2+ years field experience"],
+    location: "South Africa",
+    type: "Full-time",
+    datePosted: "2024-01-05",
     isActive: true,
+    description:
+      "Perform specialized climbing work for power line installations and maintenance. Work at heights on transmission towers and poles for cable installation, equipment mounting, and maintenance activities.",
+    requirements: [
+      "Certified climbing and safety training",
+      "3+ years experience in power line climbing",
+      "Physical fitness and ability to work at heights",
+      "Safety-first mindset and attention to detail",
+    ],
   },
   {
     id: 6,
-    title: "Graduate Trainee Engineer",
-    department: "Engineering",
-    location: "Johannesburg, South Africa",
-    type: "Graduate Program",
-    datePosted: "2023-12-20",
+    title: "Environmental Officer",
+    department: "Compliance",
+    location: "South Africa",
+    type: "Full-time",
+    datePosted: "2024-01-03",
+    isActive: true,
     description:
-      "12-month graduate program covering all aspects of electrical engineering in the power transmission industry.",
-    requirements: ["Recent Engineering graduate", "Strong academic record", "Willingness to travel"],
-    isActive: false,
+      "Ensure environmental compliance for all projects. Conduct environmental impact assessments, manage permits, and implement environmental management plans for electrical infrastructure projects.",
+    requirements: [
+      "Bachelor's degree in Environmental Science or related field",
+      "2+ years experience in environmental compliance",
+      "Knowledge of South African environmental legislation",
+      "Strong analytical and reporting skills",
+    ],
   },
-]
+];
 
 const formatDate = (dateString: string) => {
-  const date = new Date(dateString)
-  return date.toLocaleDateString("en-US", {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-ZA", {
     year: "numeric",
     month: "long",
     day: "numeric",
-  })
-}
+  });
+};
 
-const getTimeAgo = (dateString: string) => {
-  const date = new Date(dateString)
-  const now = new Date()
-  const diffTime = Math.abs(now.getTime() - date.getTime())
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+const getDaysAgo = (dateString: string) => {
+  const posted = new Date(dateString);
+  const now = new Date();
+  const diffTime = Math.abs(now.getTime() - posted.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+};
 
-  if (diffDays === 1) return "1 day ago"
-  if (diffDays < 7) return `${diffDays} days ago`
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`
-  return `${Math.floor(diffDays / 30)} months ago`
-}
-
-export default function RecruitmentPage() {
-  const activeJobs = jobPostings.filter((job) => job.isActive)
-  const inactiveJobs = jobPostings.filter((job) => !job.isActive)
+export default function RecruitmentsPage() {
+  const activeJobs = jobListings.filter((job) => job.isActive);
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary/10 to-golden/10 py-16 px-4">
-        <div className="max-w-container mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <Briefcase className="w-12 h-12 text-golden" />
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Join Our Team</h1>
-          </div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Build your career with Golden Dynasty SA, a leading electrical engineering company specializing in power
-            transmission and fiber optic solutions. We offer exciting opportunities to work on cutting-edge projects
-            with industry-leading clients.
-          </p>
-          <div className="flex items-center justify-center gap-8 mt-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-golden" />
-              <span>ISO 9001:2015 Certified</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-golden" />
-              <span>B-BBEE Level 3</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-golden" />
-              <span>185+ Projects Completed</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Header />
+      <main className="flex-1">
+        <PageHeader
+          title="Join Our Team"
+          description="Explore career opportunities with Golden Dynasty SA and become part of our mission to build South Africa's infrastructure future."
+          backgroundImage="/placeholder.svg?height=400&width=1200"
+        />
 
-      {/* Active Job Listings */}
-      <section className="py-16 px-4">
-        <div className="max-w-container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Current Opportunities</h2>
-            <p className="text-lg text-muted-foreground">
-              {activeJobs.length} active position{activeJobs.length !== 1 ? "s" : ""} available
-            </p>
-          </div>
+        <div className="py-16 px-4 pb-0">
+          <div className="max-w-container mx-auto">
+            {/* Company Values Section */}
+            <section className="mb-16">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-foreground mb-4">
+                  Why Work With Us?
+                </h2>
+                <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+                  Join a company built on reputation, integrity, and innovation.
+                  Be part of creating a world-class African company.
+                </p>
+              </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {activeJobs.map((job) => (
-              <div
-                key={job.id}
-                className="bg-card rounded-xl border border-border shadow-sm hover:shadow-lg transition-all duration-300 group"
-              >
-                <div className="p-6 h-full flex flex-col">
-                  {/* Header */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-card-foreground mb-2 group-hover:text-golden transition-colors">
-                        {job.title}
-                      </h3>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                        <Briefcase className="w-4 h-4" />
-                        <span>{job.department}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin className="w-4 h-4" />
-                        <span>{job.location}</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-end gap-2">
-                      <span className="bg-emerald-100 text-emerald-800 text-xs font-medium px-2.5 py-1 rounded-full">
-                        Active
-                      </span>
-                      <span className="bg-golden/10 text-golden text-xs font-medium px-2.5 py-1 rounded-full">
-                        {job.type}
-                      </span>
-                    </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center p-6 rounded-xl bg-card border border-border hover:shadow-lg transition-all duration-300">
+                  <div className="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Briefcase className="w-8 h-8 text-golden" />
                   </div>
+                  <h3 className="text-xl font-semibold mb-3">Reputation</h3>
+                  <p className="text-muted-foreground">
+                    Build your career with a trusted leader in South Africa's
+                    electrical engineering sector.
+                  </p>
+                </div>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{job.description}</p>
-
-                  {/* Requirements */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-medium text-card-foreground mb-2">Key Requirements:</h4>
-                    <ul className="text-xs text-muted-foreground space-y-1">
-                      {job.requirements.slice(0, 2).map((req, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <CheckCircle className="w-3 h-3 text-golden mt-0.5 flex-shrink-0" />
-                          <span>{req}</span>
-                        </li>
-                      ))}
-                      {job.requirements.length > 2 && (
-                        <li className="text-golden text-xs">+{job.requirements.length - 2} more requirements</li>
-                      )}
-                    </ul>
+                <div className="text-center p-6 rounded-xl bg-card border border-border hover:shadow-lg transition-all duration-300">
+                  <div className="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-golden" />
                   </div>
+                  <h3 className="text-xl font-semibold mb-3">Integrity</h3>
+                  <p className="text-muted-foreground">
+                    Work in an environment that values honesty, transparency,
+                    and ethical business practices.
+                  </p>
+                </div>
 
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      <span>{getTimeAgo(job.datePosted)}</span>
-                    </div>
-                    <Button size="sm" className="bg-golden hover:bg-golden-dark text-white" asChild>
-                      <a href="mailto:melanie@goldendynasty.co.za?subject=Application for Senior Electrical Engineer Position">
-                        <Mail className="w-4 h-4 mr-2" />
-                        Apply Now
-                      </a>
-                    </Button>
+                <div className="text-center p-6 rounded-xl bg-card border border-border hover:shadow-lg transition-all duration-300">
+                  <div className="w-16 h-16 bg-golden/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Zap className="w-8 h-8 text-golden" />
                   </div>
+                  <h3 className="text-xl font-semibold mb-3">Innovation</h3>
+                  <p className="text-muted-foreground">
+                    Be at the forefront of technological advancement in power
+                    systems and fiber optics.
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* Recently Closed Positions */}
-      {inactiveJobs.length > 0 && (
-        <section className="py-16 px-4 bg-muted/30">
-          <div className="max-w-container mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Recently Closed Positions</h2>
-              <p className="text-lg text-muted-foreground">Keep an eye on these roles - they may reopen soon</p>
-            </div>
+            {/* Active Job Listings */}
+            <section className="mb-16">
+              <div className="flex items-center gap-3 mb-8">
+                <Briefcase className="w-6 h-6 text-golden" />
+                <h2 className="text-2xl font-bold text-foreground">
+                  Current Openings
+                </h2>
+                <Badge
+                  variant="secondary"
+                  className="bg-green-100 text-green-800 border-green-200"
+                >
+                  {activeJobs.length} Active
+                </Badge>
+              </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {inactiveJobs.map((job) => (
-                <div key={job.id} className="bg-card rounded-xl border border-border shadow-sm opacity-75">
-                  <div className="p-6 h-full flex flex-col">
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-4">
+              <div className="grid gap-6">
+                {activeJobs.map((job) => (
+                  <div
+                    key={job.id}
+                    className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-golden/30"
+                  >
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-card-foreground mb-2">{job.title}</h3>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                          <Briefcase className="w-4 h-4" />
-                          <span>{job.department}</span>
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <h3 className="text-xl font-semibold text-foreground mb-1 hover:text-golden transition-colors">
+                              {job.title}
+                            </h3>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <span className="flex items-center gap-1">
+                                <MapPin className="w-4 h-4" />
+                                {job.location}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Clock className="w-4 h-4" />
+                                {job.type}
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <MapPin className="w-4 h-4" />
-                          <span>{job.location}</span>
+
+                        <p className="text-muted-foreground mb-4 leading-relaxed">
+                          {job.description}
+                        </p>
+
+                        <div className="mb-4">
+                          <h4 className="font-medium text-foreground mb-2">
+                            Key Requirements:
+                          </h4>
+                          <ul className="text-sm text-muted-foreground space-y-1">
+                            {job.requirements.map((req, index) => (
+                              <li
+                                key={index}
+                                className="flex items-start gap-2"
+                              >
+                                <span className="w-1.5 h-1.5 bg-golden rounded-full mt-2 shrink-0"></span>
+                                {req}
+                              </li>
+                            ))}
+                          </ul>
                         </div>
                       </div>
-                      <div className="flex flex-col items-end gap-2">
-                        <span className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded-full">
-                          Closed
-                        </span>
-                        <span className="bg-gray-50 text-gray-500 text-xs font-medium px-2.5 py-1 rounded-full">
-                          {job.type}
-                        </span>
-                      </div>
-                    </div>
 
-                    {/* Description */}
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{job.description}</p>
-
-                    {/* Footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <Clock className="w-4 h-4" />
-                        <span>Closed {getTimeAgo(job.datePosted)}</span>
+                      <div className="lg:ml-6 shrink-0">
+                        <Button
+                          asChild
+                          className="w-full lg:w-auto bg-golden hover:bg-golden-dark text-primary-foreground"
+                        >
+                          <a
+                            href={`mailto:melanie@goldendynasty.co.za?subject=Application for ${
+                              job.title
+                            }&body=Dear Hiring Team,%0D%0A%0D%0AI am interested in applying for the ${
+                              job.title
+                            } position posted on ${formatDate(
+                              job.datePosted
+                            )}.%0D%0A%0D%0APlease find my application details below:%0D%0A%0D%0ABest regards`}
+                            className="flex items-center gap-2"
+                          >
+                            <Mail className="w-4 h-4" />
+                            Apply Now
+                          </a>
+                        </Button>
                       </div>
-                      <Button size="sm" variant="outline" disabled className="opacity-50 bg-transparent">
-                        Position Closed
-                      </Button>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+                ))}
+              </div>
+            </section>
 
-      {/* Contact Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-golden/5 to-primary/5">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-6">Don't See the Right Role?</h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            We're always looking for talented individuals to join our team. Send us your CV and let us know how you can
-            contribute to our mission of delivering world-class electrical engineering solutions.
-          </p>
-          <Button size="lg" className="bg-golden hover:bg-golden-dark text-white" asChild>
-            <a href="mailto:melanie@goldendynasty.co.za?subject=General Application - Golden Dynasty SA">
-              <Mail className="w-5 h-5 mr-2" />
-              Send Your CV
-            </a>
-          </Button>
-          <div className="mt-6 text-sm text-muted-foreground">
-            <p>Email: melanie@goldendynasty.co.za</p>
-            <p>We'll get back to you within 48 hours</p>
+            {/* Contact Section */}
           </div>
         </div>
-      </section>
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }

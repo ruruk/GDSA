@@ -98,7 +98,7 @@ export default function HeroCarousel() {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, [isAutoPlaying]);

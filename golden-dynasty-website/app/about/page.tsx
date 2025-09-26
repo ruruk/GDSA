@@ -87,7 +87,7 @@ export default function AboutPage() {
                   grinding balls, and OPGW cables have been approved and used by
                   Eskom Holdings SOC Limited and NTCSA. The company has been
                   involved in the installation, testing, and commissioning of
-                  OPGW cables and Earthwire for Eskom since 2011.
+                  OPGW & ADSS cables and Earthwire for Eskom since 2011.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <div className="flex items-center gap-2 bg-golden/10 px-4 py-2 rounded-full">
@@ -176,93 +176,6 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Our Journey Timeline */}
-        <section className="py-16 px-4 bg-muted/30">
-          <div className="max-w-container mx-auto">
-            <div className="text-center mb-12">
-              <div className="flex items-center justify-center gap-3 mb-6">
-                <Calendar className="w-8 h-8 text-golden" />
-                <h2 className="text-3xl font-bold text-foreground">
-                  Our Journey
-                </h2>
-              </div>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Over 25 years of growth, innovation, and commitment to
-                excellence
-              </p>
-            </div>
-
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-golden to-amber-600 rounded-full"></div>
-
-              <div className="space-y-12">
-                {[
-                  {
-                    year: "1997",
-                    event: "Company established",
-                    description:
-                      "Golden Dynasty SA founded with a vision for infrastructure excellence",
-                  },
-                  {
-                    year: "2009",
-                    event: "ISO 9001 certification achieved",
-                    description: "Committed to international quality standards",
-                  },
-                  {
-                    year: "2011",
-                    event:
-                      "Began OPGW and earthwire installation projects with Eskom",
-                    description:
-                      "Expanded into specialized fiber optic solutions",
-                  },
-                  {
-                    year: "2022",
-                    event: "Upgraded to CIDB 7EP contractor grade",
-                    description:
-                      "Enhanced capabilities for large-scale projects",
-                  },
-                  {
-                    year: "2024+",
-                    event: "Expanded community investment programs",
-                    description:
-                      "Strengthened commitment to social development",
-                  },
-                ].map((milestone, index) => (
-                  <div
-                    key={index}
-                    className={`flex items-center gap-8 ${
-                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                    }`}
-                  >
-                    <div
-                      className={`flex-1 ${
-                        index % 2 === 0 ? "text-right" : "text-left"
-                      }`}
-                    >
-                      <div className="bg-white rounded-xl p-6 shadow-lg border border-golden/20">
-                        <div className="text-2xl font-bold text-golden mb-2">
-                          {milestone.year}
-                        </div>
-                        <h3 className="text-lg font-semibold text-foreground mb-2">
-                          {milestone.event}
-                        </h3>
-                        <p className="text-muted-foreground">
-                          {milestone.description}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <div className="w-4 h-4 bg-golden rounded-full border-4 border-white shadow-lg"></div>
-                    </div>
-                    <div className="flex-1"></div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -390,35 +303,15 @@ export default function AboutPage() {
                   key={index}
                   className="bg-white rounded-xl overflow-hidden shadow-lg border border-golden/20 group hover:shadow-xl transition-all duration-300 flex flex-col"
                 >
-                  <div className="p-6 flex flex-col flex-1">
+                  <div className="p-6 flex flex-col flex-1 pr-6 pb-2.5">
                     <h3 className="text-xl font-semibold text-foreground mb-1">
                       {cert.title}
                     </h3>
                     <p className="text-golden font-medium mb-3">
                       {cert.subtitle}
                     </p>
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                      {cert.description}
-                    </p>
-                    <div className="space-y-1 mb-6 flex-1">
-                      {cert.specs.map((spec, specIndex) => (
-                        <p
-                          key={specIndex}
-                          className="text-xs text-muted-foreground"
-                        >
-                          {spec}
-                        </p>
-                      ))}
-                    </div>
-                    <Link href="/accreditations" className="mt-auto">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="border-golden text-golden hover:bg-golden hover:text-white bg-transparent w-full"
-                      >
-                        View Certificate
-                      </Button>
-                    </Link>
+
+                    <Link href="/accreditations" className="mt-auto"></Link>
                   </div>
                 </div>
               ))}
@@ -590,9 +483,6 @@ export default function AboutPage() {
                               >
                                 {contribution.category}
                               </Badge>
-                              <span className="text-xs text-muted-foreground font-medium">
-                                {contribution.date}
-                              </span>
                             </div>
                             <h4
                               className={`font-semibold mb-2 line-clamp-2 ${

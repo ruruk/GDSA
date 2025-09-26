@@ -17,8 +17,7 @@ const navigation = [
     href: "#",
     dropdown: [
       { name: "About Us", href: "/about" },
-      { name: "Accreditations", href: "/accreditation" },
-      { name: "Careers", href: "/recruitments" },
+      { name: "Careers", href: "/recruitment" },
     ],
   },
   {
@@ -28,6 +27,7 @@ const navigation = [
       { name: "Products", href: "/products" },
       { name: "Services", href: "/services" },
       { name: "Projects", href: "/projects" },
+      { name: "Rentals", href: "/rentals" },
     ],
   },
   {
