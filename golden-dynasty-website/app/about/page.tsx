@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Header from "@/components/global/header"
-import Footer from "@/components/global/footer"
-import PageHeader from "@/components/global/page-header"
+import { useState, useEffect } from "react";
+import Header from "@/components/global/header";
+import Footer from "@/components/global/footer";
+import PageHeader from "@/components/global/page-header";
 import {
   Building2,
   Zap,
@@ -15,39 +15,42 @@ import {
   Calendar,
   ChevronLeft,
   ChevronRight,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card"
-import Link from "next/link"
-import contributions from "@/data/contributions.json"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card";
+import Link from "next/link";
+import contributions from "@/data/contributions.json";
 
 export default function AboutPage() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % contributions.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
+      setCurrentIndex((prev) => (prev + 1) % contributions.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % contributions.length)
-  }
+    setCurrentIndex((prev) => (prev + 1) % contributions.length);
+  };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + contributions.length) % contributions.length)
-  }
+    setCurrentIndex(
+      (prev) => (prev - 1 + contributions.length) % contributions.length
+    );
+  };
 
   const getVisibleContributions = () => {
-    const visible = []
+    const visible = [];
     for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i - 1 + contributions.length) % contributions.length
-      visible.push({ ...contributions[index], position: i })
+      const index =
+        (currentIndex + i - 1 + contributions.length) % contributions.length;
+      visible.push({ ...contributions[index], position: i });
     }
-    return visible
-  }
+    return visible;
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -66,18 +69,25 @@ export default function AboutPage() {
               <div className="space-y-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-1 h-12 bg-gradient-to-b from-golden to-amber-600 rounded-full"></div>
-                  <h2 className="text-3xl font-bold text-foreground">Company Overview</h2>
+                  <h2 className="text-3xl font-bold text-foreground">
+                    Company Overview
+                  </h2>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Golden Dynasty S.A. (Pty) Ltd was established in 1997. The company specializes in project consulting,
-                  fibre installation & management, sourcing and supply, and delivery of various kinds of transmission
-                  and distribution power line products, such as insulators, optical fibre cables, ACSR conductors, line
-                  hardware fittings, galvanized steel wire, grinding balls, solar products, etc.
+                  Golden Dynasty S.A. (Pty) Ltd was established in 1997. The
+                  company specializes in project consulting, fibre installation
+                  & management, sourcing and supply, and delivery of various
+                  kinds of transmission and distribution power line products,
+                  such as insulators, optical fibre cables, ACSR conductors,
+                  line hardware fittings, galvanized steel wire, grinding balls,
+                  solar products, etc.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Some of the products such as glass insulators, steel wires, grinding balls, and OPGW cables have been
-                  approved and used by Eskom Holdings SOC Limited and NTCSA. The company has been involved in the
-                  installation, testing, and commissioning of OPGW cables and Earthwire for Eskom since 2011.
+                  Some of the products such as glass insulators, steel wires,
+                  grinding balls, and OPGW cables have been approved and used by
+                  Eskom Holdings SOC Limited and NTCSA. The company has been
+                  involved in the installation, testing, and commissioning of
+                  OPGW cables and Earthwire for Eskom since 2011.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
                   <div className="flex items-center gap-2 bg-golden/10 px-4 py-2 rounded-full">
@@ -112,7 +122,9 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Award className="w-8 h-8 text-golden" />
-                <h2 className="text-3xl font-bold text-foreground">Our Foundation</h2>
+                <h2 className="text-3xl font-bold text-foreground">
+                  Our Foundation
+                </h2>
               </div>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 The principles that guide our operations and relationships
@@ -135,7 +147,8 @@ export default function AboutPage() {
                 },
                 {
                   title: "Corporate Mission",
-                  content: "We are committed to grow with all stakeholders and to make contributions to the society.",
+                  content:
+                    "We are committed to grow with all stakeholders and to make contributions to the society.",
                   icon: Heart,
                   color: "from-purple-500 to-purple-600",
                 },
@@ -154,8 +167,12 @@ export default function AboutPage() {
                     >
                       <item.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.content}</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {item.content}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -169,10 +186,13 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Calendar className="w-8 h-8 text-golden" />
-                <h2 className="text-3xl font-bold text-foreground">Our Journey</h2>
+                <h2 className="text-3xl font-bold text-foreground">
+                  Our Journey
+                </h2>
               </div>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Over 25 years of growth, innovation, and commitment to excellence
+                Over 25 years of growth, innovation, and commitment to
+                excellence
               </p>
             </div>
 
@@ -185,7 +205,8 @@ export default function AboutPage() {
                   {
                     year: "1997",
                     event: "Company established",
-                    description: "Golden Dynasty SA founded with a vision for infrastructure excellence",
+                    description:
+                      "Golden Dynasty SA founded with a vision for infrastructure excellence",
                   },
                   {
                     year: "2009",
@@ -194,29 +215,45 @@ export default function AboutPage() {
                   },
                   {
                     year: "2011",
-                    event: "Began OPGW and earthwire installation projects with Eskom",
-                    description: "Expanded into specialized fiber optic solutions",
+                    event:
+                      "Began OPGW and earthwire installation projects with Eskom",
+                    description:
+                      "Expanded into specialized fiber optic solutions",
                   },
                   {
                     year: "2022",
                     event: "Upgraded to CIDB 7EP contractor grade",
-                    description: "Enhanced capabilities for large-scale projects",
+                    description:
+                      "Enhanced capabilities for large-scale projects",
                   },
                   {
                     year: "2024+",
                     event: "Expanded community investment programs",
-                    description: "Strengthened commitment to social development",
+                    description:
+                      "Strengthened commitment to social development",
                   },
                 ].map((milestone, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-8 ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}
+                    className={`flex items-center gap-8 ${
+                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                    }`}
                   >
-                    <div className={`flex-1 ${index % 2 === 0 ? "text-right" : "text-left"}`}>
+                    <div
+                      className={`flex-1 ${
+                        index % 2 === 0 ? "text-right" : "text-left"
+                      }`}
+                    >
                       <div className="bg-white rounded-xl p-6 shadow-lg border border-golden/20">
-                        <div className="text-2xl font-bold text-golden mb-2">{milestone.year}</div>
-                        <h3 className="text-lg font-semibold text-foreground mb-2">{milestone.event}</h3>
-                        <p className="text-muted-foreground">{milestone.description}</p>
+                        <div className="text-2xl font-bold text-golden mb-2">
+                          {milestone.year}
+                        </div>
+                        <h3 className="text-lg font-semibold text-foreground mb-2">
+                          {milestone.event}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {milestone.description}
+                        </p>
                       </div>
                     </div>
                     <div className="relative">
@@ -236,7 +273,9 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Settings className="w-8 h-8 text-golden" />
-                <h2 className="text-3xl font-bold text-foreground">Our Expertise</h2>
+                <h2 className="text-3xl font-bold text-foreground">
+                  Our Expertise
+                </h2>
               </div>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Comprehensive solutions across the infrastructure spectrum
@@ -248,22 +287,26 @@ export default function AboutPage() {
                 {
                   icon: Zap,
                   title: "Fibre Installation & Management",
-                  description: "End-to-end optical fibre solutions (OPGW, ADSS)",
+                  description:
+                    "End-to-end optical fibre solutions (OPGW, ADSS)",
                 },
                 {
                   icon: Building2,
                   title: "Powerline Products Supply",
-                  description: "Wide portfolio of insulators, conductors, cables, and fittings",
+                  description:
+                    "Wide portfolio of insulators, conductors, cables, and fittings",
                 },
                 {
                   icon: Settings,
                   title: "Project Management & Consultancy",
-                  description: "Turnkey delivery of high-voltage infrastructure projects",
+                  description:
+                    "Turnkey delivery of high-voltage infrastructure projects",
                 },
                 {
                   icon: Shield,
                   title: "Emergency Repairs",
-                  description: "Fibre repair and maintenance under critical conditions",
+                  description:
+                    "Fibre repair and maintenance under critical conditions",
                 },
               ].map((service, index) => (
                 <div key={index} className="group">
@@ -271,8 +314,12 @@ export default function AboutPage() {
                     <div className="w-12 h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-golden/20 transition-colors">
                       <service.icon className="w-6 h-6 text-golden" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -286,10 +333,13 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Award className="w-8 h-8 text-golden" />
-                <h2 className="text-3xl font-bold text-foreground">Certifications & Accreditations</h2>
+                <h2 className="text-3xl font-bold text-foreground">
+                  Certifications & Accreditations
+                </h2>
               </div>
               <p className="text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Golden Dynasty SA maintains internationally recognized quality and compliance standards
+                Golden Dynasty SA maintains internationally recognized quality
+                and compliance standards
               </p>
             </div>
 
@@ -341,12 +391,21 @@ export default function AboutPage() {
                   className="bg-white rounded-xl overflow-hidden shadow-lg border border-golden/20 group hover:shadow-xl transition-all duration-300 flex flex-col"
                 >
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-1">{cert.title}</h3>
-                    <p className="text-golden font-medium mb-3">{cert.subtitle}</p>
-                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{cert.description}</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-1">
+                      {cert.title}
+                    </h3>
+                    <p className="text-golden font-medium mb-3">
+                      {cert.subtitle}
+                    </p>
+                    <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                      {cert.description}
+                    </p>
                     <div className="space-y-1 mb-6 flex-1">
                       {cert.specs.map((spec, specIndex) => (
-                        <p key={specIndex} className="text-xs text-muted-foreground">
+                        <p
+                          key={specIndex}
+                          className="text-xs text-muted-foreground"
+                        >
                           {spec}
                         </p>
                       ))}
@@ -373,12 +432,15 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Shield className="w-8 h-8 text-golden" />
-                <h2 className="text-3xl font-bold text-foreground">Quality Assurance</h2>
+                <h2 className="text-3xl font-bold text-foreground">
+                  Quality Assurance
+                </h2>
               </div>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-8">
-                As well as offering IEC Standard products, we also offer custom made products according to the client's
-                specific requirements. After-sale services including technical assistance will also be provided upon
-                request from our clients.
+                As well as offering IEC Standard products, we also offer custom
+                made products according to the client's specific requirements.
+                After-sale services including technical assistance will also be
+                provided upon request from our clients.
               </p>
             </div>
 
@@ -394,19 +456,22 @@ export default function AboutPage() {
                 {
                   icon: CheckCircle,
                   title: "IEC Standards",
-                  description: "Compliance with International Electrotechnical Commission standards",
+                  description:
+                    "Compliance with International Electrotechnical Commission standards",
                   color: "from-blue-500 to-blue-600",
                 },
                 {
                   icon: Shield,
                   title: "Type Test Certificate",
-                  description: "Product design and performance validation certification",
+                  description:
+                    "Product design and performance validation certification",
                   color: "from-purple-500 to-purple-600",
                 },
                 {
                   icon: Settings,
                   title: "Routine Test Certificate",
-                  description: "Regular quality control and testing documentation",
+                  description:
+                    "Regular quality control and testing documentation",
                   color: "from-orange-500 to-orange-600",
                 },
               ].map((cert, index) => (
@@ -417,8 +482,12 @@ export default function AboutPage() {
                     >
                       <cert.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-3">{cert.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{cert.description}</p>
+                    <h3 className="text-lg font-semibold text-foreground mb-3">
+                      {cert.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {cert.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -426,7 +495,9 @@ export default function AboutPage() {
 
             {/* Products Section */}
             <div className="bg-white rounded-xl p-8 shadow-lg border border-golden/20 mb-8">
-              <h3 className="text-2xl font-bold text-center mb-6 text-foreground">Cables & Conductors</h3>
+              <h3 className="text-2xl font-bold text-center mb-6 text-foreground">
+                Cables & Conductors
+              </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   "OPGW (Optical Fibre Composite Ground Wire & Communication Optical Fibre)",
@@ -437,7 +508,10 @@ export default function AboutPage() {
                   "AAAC (All Aluminum Alloy Conductor)",
                   "ACS Wires",
                 ].map((product, index) => (
-                  <div key={index} className="flex items-center gap-2 p-3 bg-golden/5 rounded-lg">
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 p-3 bg-golden/5 rounded-lg"
+                  >
                     <CheckCircle className="w-4 h-4 text-golden flex-shrink-0" />
                     <span className="text-sm text-foreground">{product}</span>
                   </div>
@@ -449,7 +523,8 @@ export default function AboutPage() {
             <div className="bg-white rounded-xl p-8 shadow-lg border border-golden/20 text-center">
               <div className="w-16 h-1 bg-gradient-to-r from-golden to-amber-600 rounded-full mx-auto mb-6"></div>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                We look forward to establishing a long term mutually beneficial relationship with all our clients.
+                We look forward to establishing a long term mutually beneficial
+                relationship with all our clients.
               </p>
               <div className="w-16 h-1 bg-gradient-to-r from-golden to-amber-600 rounded-full mx-auto mt-6"></div>
             </div>
@@ -462,10 +537,13 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Heart className="w-8 h-8 text-golden" />
-                <h2 className="text-3xl font-bold text-foreground">Our Commitment to Communities</h2>
+                <h2 className="text-3xl font-bold text-foreground">
+                  Our Commitment to Communities
+                </h2>
               </div>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Making a meaningful difference in South African communities through targeted support and investment
+                Making a meaningful difference in South African communities
+                through targeted support and investment
               </p>
             </div>
 
@@ -473,24 +551,31 @@ export default function AboutPage() {
               {/* Carousel Container */}
               <div className="flex items-center justify-center gap-6 px-16 py-4">
                 {getVisibleContributions().map((contribution, index) => {
-                  const isActive = contribution.position === 1
+                  const isActive = contribution.position === 1;
                   return (
                     <div
                       key={contribution.id}
                       className={`flex-shrink-0 transition-all duration-700 ease-out ${
-                        isActive ? "w-80 h-[360px] scale-105 z-10" : "w-72 h-[350px] scale-90 opacity-60"
+                        isActive
+                          ? "w-80 h-[330px] scale-105 z-10"
+                          : "w-72 h-[320px] scale-90 opacity-60"
                       }`}
                     >
                       <GdsaCard
                         className={`h-full overflow-hidden group hover:shadow-xl transition-all duration-300 ${
-                          isActive ? "ring-2 ring-golden/60 shadow-2xl" : "shadow-md"
+                          isActive
+                            ? "ring-2 ring-golden/60 shadow-2xl"
+                            : "shadow-md"
                         }`}
                       >
                         <div className="relative h-40 overflow-hidden">
                           <div
                             className="w-full h-full bg-cover bg-center bg-no-repeat"
                             style={{
-                              backgroundImage: `url(${contribution.image || "/placeholder.svg?height=300&width=400"})`,
+                              backgroundImage: `url(${
+                                contribution.image ||
+                                "/placeholder.svg?height=300&width=400"
+                              })`,
                             }}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
@@ -499,27 +584,35 @@ export default function AboutPage() {
                         <GdsaCardContent className="p-4 text-center flex flex-col justify-between h-32">
                           <div>
                             <div className="flex items-center justify-center gap-2 mb-2">
-                              <Badge variant="secondary" className="text-xs px-2 py-1">
+                              <Badge
+                                variant="secondary"
+                                className="text-xs px-2 py-1"
+                              >
                                 {contribution.category}
                               </Badge>
-                              <span className="text-xs text-muted-foreground font-medium">{contribution.date}</span>
+                              <span className="text-xs text-muted-foreground font-medium">
+                                {contribution.date}
+                              </span>
                             </div>
-                            <h4 className={`font-semibold mb-2 line-clamp-2 ${isActive ? "text-base" : "text-sm"}`}>
+                            <h4
+                              className={`font-semibold mb-2 line-clamp-2 ${
+                                isActive ? "text-base" : "text-sm"
+                              }`}
+                            >
                               {contribution.title}
                             </h4>
                             <p
-                              className={`text-muted-foreground line-clamp-2 mb-2 ${isActive ? "text-sm" : "text-xs"}`}
+                              className={`text-muted-foreground line-clamp-2 mb-2 ${
+                                isActive ? "text-sm" : "text-xs"
+                              }`}
                             >
                               {contribution.description}
                             </p>
                           </div>
-                          <div className={`font-bold text-golden ${isActive ? "text-lg" : "text-base"}`}>
-                            {contribution.amount}
-                          </div>
                         </GdsaCardContent>
                       </GdsaCard>
                     </div>
-                  )
+                  );
                 })}
               </div>
 
@@ -543,7 +636,9 @@ export default function AboutPage() {
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      index === currentIndex ? "bg-golden w-8" : "bg-gray-300 w-2 hover:bg-gray-400"
+                      index === currentIndex
+                        ? "bg-golden w-8"
+                        : "bg-gray-300 w-2 hover:bg-gray-400"
                     }`}
                   />
                 ))}
@@ -552,7 +647,9 @@ export default function AboutPage() {
 
             <div className="text-center">
               <Link href="/social-development">
-                <Button className="bg-golden hover:bg-golden/90 text-white">View All Contributions</Button>
+                <Button className="bg-golden hover:bg-golden/90 text-white">
+                  View All Contributions
+                </Button>
               </Link>
             </div>
           </div>
@@ -562,5 +659,5 @@ export default function AboutPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

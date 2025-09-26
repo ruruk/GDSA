@@ -1,8 +1,17 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight, Zap, Award, Package, Heart, Building, Shield } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Zap,
+  Award,
+  Package,
+  Heart,
+  Building,
+  Shield,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const slides = [
   {
@@ -77,48 +86,50 @@ const slides = [
     gradient: "from-red-900/85 via-red-800/70 to-transparent",
     icon: Heart,
   },
-]
+];
 
 export default function HeroCarousel() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   // Auto-play functionality
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 6000)
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying])
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-    setIsAutoPlaying(false)
-  }
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setIsAutoPlaying(false);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-    setIsAutoPlaying(false)
-  }
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setIsAutoPlaying(false);
+  };
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-    setIsAutoPlaying(false)
-  }
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+  };
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => {
-        const IconComponent = slide.icon
+        const IconComponent = slide.icon;
         return (
           <div
             key={slide.id}
             className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-              index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
+              index === currentSlide
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-105 pointer-events-none"
             }`}
           >
             {/* Background Image */}
@@ -130,7 +141,9 @@ export default function HeroCarousel() {
             />
 
             {/* Gradient Overlay */}
-            <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`} />
+            <div
+              className={`absolute inset-0 bg-gradient-to-r ${slide.gradient}`}
+            />
 
             {/* Content */}
             <div className="relative z-10 h-full flex items-center">
@@ -138,14 +151,18 @@ export default function HeroCarousel() {
                 <div className="max-w-4xl">
                   <div
                     className={`transform transition-all duration-1000 delay-300 ${
-                      index === currentSlide ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                      index === currentSlide
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-8 opacity-0"
                     }`}
                   >
                     <div className="flex items-center gap-3 mb-4">
                       <div className="bg-golden/20 backdrop-blur-sm rounded-full p-3">
                         <IconComponent className="w-8 h-8 text-golden" />
                       </div>
-                      <h2 className="text-sm font-semibold uppercase tracking-wider text-golden">{slide.subtitle}</h2>
+                      <h2 className="text-sm font-semibold uppercase tracking-wider text-golden">
+                        {slide.subtitle}
+                      </h2>
                     </div>
                     <h1 className="font-bold text-white mb-4 md:mb-6 leading-tight text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                       {slide.title}
@@ -153,11 +170,11 @@ export default function HeroCarousel() {
                     <p className="text-white/90 mb-6 md:mb-8 max-w-2xl leading-relaxed text-pretty text-base sm:text-lg md:text-xl">
                       {slide.description}
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                    <div className="flex flex-col sm:flex-row gap-3 md:gap-4 min-h-[60px] items-start">
                       <Button
                         asChild
                         size="lg"
-                        className="bg-golden hover:bg-golden-dark text-primary font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                        className="bg-golden hover:bg-golden-dark text-primary font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl relative z-10"
                       >
                         <a href={slide.ctaLink}>{slide.ctaText}</a>
                       </Button>
@@ -165,7 +182,7 @@ export default function HeroCarousel() {
                         asChild
                         variant="outline"
                         size="lg"
-                        className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 bg-transparent"
+                        className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 text-lg rounded-full transition-all duration-300 hover:scale-105 bg-transparent relative z-10"
                       >
                         <a href="/contact">Get Quote</a>
                       </Button>
@@ -175,14 +192,18 @@ export default function HeroCarousel() {
               </div>
             </div>
           </div>
-        )
+        );
       })}
 
       {/* Navigation Controls - Bottom Center */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
         <div className="flex items-center gap-3 md:gap-6 bg-black/20 backdrop-blur-sm rounded-full py-2 md:py-4 my-7 md:px-4 px-2">
           {/* Previous button */}
-          <button onClick={prevSlide} className="group" aria-label="Previous slide">
+          <button
+            onClick={prevSlide}
+            className="group"
+            aria-label="Previous slide"
+          >
             <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 md:p-3 transition-all duration-300 group-hover:bg-golden group-hover:scale-110">
               <ChevronLeft className="w-4 h-4 md:w-6 md:h-6 text-white group-hover:text-primary" />
             </div>
@@ -218,5 +239,5 @@ export default function HeroCarousel() {
         <div className="h-1 bg-white/20"></div>
       </div>
     </div>
-  )
+  );
 }

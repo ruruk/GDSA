@@ -1,39 +1,45 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card"
-import { Badge } from "@/components/ui/badge"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import contributions from "@/data/contributions.json"
+import { useState } from "react";
+import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card";
+import { Badge } from "@/components/ui/badge";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import contributions from "@/data/contributions.json";
 
 export default function SocialDevelopment() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % contributions.length)
-  }
+    setCurrentIndex((prev) => (prev + 1) % contributions.length);
+  };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + contributions.length) % contributions.length)
-  }
+    setCurrentIndex(
+      (prev) => (prev - 1 + contributions.length) % contributions.length
+    );
+  };
 
   const getVisibleContributions = () => {
-    const visible = []
+    const visible = [];
     for (let i = 0; i < 3; i++) {
-      const index = (currentIndex + i - 1 + contributions.length) % contributions.length
-      visible.push({ ...contributions[index], position: i })
+      const index =
+        (currentIndex + i - 1 + contributions.length) % contributions.length;
+      visible.push({ ...contributions[index], position: i });
     }
-    return visible
-  }
+    return visible;
+  };
 
   return (
     <section className="py-16 pb-0">
       <div className="max-w-container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">Social Development Impact</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            Social Development Impact
+          </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Beyond delivering exceptional electrical services, Golden Dynasty SA is committed to empowering communities
-            and fostering sustainable development across South Africa.
+            Beyond delivering exceptional electrical services, Golden Dynasty SA
+            is committed to empowering communities and fostering sustainable
+            development across South Africa.
           </p>
         </div>
 
@@ -42,24 +48,31 @@ export default function SocialDevelopment() {
             {/* Carousel Container */}
             <div className="flex items-center justify-center gap-6 px-16 py-4">
               {getVisibleContributions().map((contribution, index) => {
-                const isActive = contribution.position === 1
+                const isActive = contribution.position === 1;
                 return (
                   <div
                     key={contribution.id}
                     className={`flex-shrink-0 transition-all duration-700 ease-out ${
-                      isActive ? "w-80 h-[360px] scale-105 z-10" : "w-72 h-[350px] scale-90 opacity-60"
+                      isActive
+                        ? "w-80 h-[330px] scale-105 z-10"
+                        : "w-72 h-[320px] scale-90 opacity-60"
                     }`}
                   >
                     <GdsaCard
                       className={`h-full overflow-hidden group hover:shadow-xl transition-all duration-300 ${
-                        isActive ? "ring-2 ring-golden/60 shadow-2xl" : "shadow-md"
+                        isActive
+                          ? "ring-2 ring-golden/60 shadow-2xl"
+                          : "shadow-md"
                       }`}
                     >
                       <div className="relative h-40 overflow-hidden">
                         <div
                           className="w-full h-full bg-cover bg-center bg-no-repeat"
                           style={{
-                            backgroundImage: `url(${contribution.image || "/placeholder.svg?height=300&width=400"})`,
+                            backgroundImage: `url(${
+                              contribution.image ||
+                              "/placeholder.svg?height=300&width=400"
+                            })`,
                           }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent" />
@@ -68,25 +81,35 @@ export default function SocialDevelopment() {
                       <GdsaCardContent className="p-4 text-center flex flex-col justify-between h-32">
                         <div>
                           <div className="flex items-center justify-center gap-2 mb-2">
-                            <Badge variant="secondary" className="text-xs px-2 py-1">
+                            <Badge
+                              variant="secondary"
+                              className="text-xs px-2 py-1"
+                            >
                               {contribution.category}
                             </Badge>
-                            <span className="text-xs text-muted-foreground font-medium">{contribution.date}</span>
+                            <span className="text-xs text-muted-foreground font-medium">
+                              {contribution.date}
+                            </span>
                           </div>
-                          <h4 className={`font-semibold mb-2 line-clamp-2 ${isActive ? "text-base" : "text-sm"}`}>
+                          <h4
+                            className={`font-semibold mb-2 line-clamp-2 ${
+                              isActive ? "text-base" : "text-sm"
+                            }`}
+                          >
                             {contribution.title}
                           </h4>
-                          <p className={`text-muted-foreground line-clamp-2 mb-2 ${isActive ? "text-sm" : "text-xs"}`}>
+                          <p
+                            className={`text-muted-foreground line-clamp-2 mb-2 ${
+                              isActive ? "text-sm" : "text-xs"
+                            }`}
+                          >
                             {contribution.description}
                           </p>
-                        </div>
-                        <div className={`font-bold text-golden ${isActive ? "text-lg" : "text-base"}`}>
-                          {contribution.amount}
                         </div>
                       </GdsaCardContent>
                     </GdsaCard>
                   </div>
-                )
+                );
               })}
             </div>
 
@@ -110,7 +133,9 @@ export default function SocialDevelopment() {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-golden w-8" : "bg-gray-300 w-2 hover:bg-gray-400"
+                    index === currentIndex
+                      ? "bg-golden w-8"
+                      : "bg-gray-300 w-2 hover:bg-gray-400"
                   }`}
                 />
               ))}
@@ -119,5 +144,5 @@ export default function SocialDevelopment() {
         </div>
       </div>
     </section>
-  )
+  );
 }
