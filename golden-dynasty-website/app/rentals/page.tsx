@@ -7,96 +7,88 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Truck, Wrench, Zap, HardHat, Settings, Cable } from "lucide-react";
 
-const rentalEquipment = [
+const equipmentCategories = [
   {
-    id: 1,
-    title: "Utility Bucket Trucks",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "High-reach utility trucks equipped with insulated booms for safe electrical line work. Perfect for OPGW and ADSS cable installations.",
-    category: "Vehicles",
+    id: "vehicles",
+    title: "Vehicles",
     icon: Truck,
-    features: [
-      "45ft-65ft reach",
-      "Insulated boom",
-      "Tool storage",
-      "Safety certified",
-    ],
+    items: ["Crane Trucks", "4 x 4 Bakkies", "Passenger Carrier"],
   },
   {
-    id: 2,
-    title: "Cable Pulling Equipment",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "Professional cable pulling systems and winches for efficient installation of power lines and fiber optic cables.",
-    category: "Machinery",
-    icon: Cable,
-    features: [
-      "Variable speed control",
-      "High tensile strength",
-      "Remote operation",
-      "Safety monitoring",
-    ],
-  },
-  {
-    id: 3,
-    title: "Electrical Testing Equipment",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "Comprehensive testing equipment including insulation testers, multimeters, and power quality analyzers.",
-    category: "Testing",
-    icon: Zap,
-    features: [
-      "High voltage testing",
-      "Digital displays",
-      "Data logging",
-      "Calibrated instruments",
-    ],
-  },
-  {
-    id: 4,
-    title: "Excavation Equipment",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "Compact excavators and trenching equipment for underground cable installation and utility pole placement.",
-    category: "Heavy Machinery",
+    id: "hydraulic-equipment",
+    title: "Hydraulic Equipment",
     icon: Settings,
-    features: [
-      "Precision digging",
-      "Compact design",
-      "Hydraulic power",
-      "Operator training included",
+    items: [
+      "Hydraulic Puller",
+      "Hydraulic Tensioner",
+      "Hydraulic Cutter / Grinder",
+      "Hydraulic Pumps",
+      "Stringing Equipment",
     ],
   },
   {
-    id: 5,
-    title: "Safety Equipment & Gear",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "Complete safety equipment packages including hard hats, safety harnesses, insulated tools, and protective clothing.",
-    category: "Safety",
-    icon: HardHat,
-    features: [
-      "OSHA compliant",
-      "High visibility",
-      "Electrical rated",
-      "Full body protection",
+    id: "testing-measurement",
+    title: "Testing & Measurement",
+    icon: Zap,
+    items: [
+      "Dynometer",
+      "Length Measurement Meter",
+      "High Voltage Tester",
+      "OPGW Fusion Joint Splicing Machine and PLMS Tester",
     ],
   },
   {
-    id: 6,
-    title: "Specialized Tools",
-    image: "/placeholder.svg?height=300&width=400",
-    description:
-      "Professional electrical tools including crimpers, cutters, stringing blocks, and tension monitoring equipment.",
-    category: "Tools",
+    id: "cable-installation",
+    title: "Cable Installation",
+    icon: Cable,
+    items: [
+      "Helicopter Stringing Blocks",
+      "Single Sheave Stringing Block",
+      "Cable Mesh Sock",
+    ],
+  },
+  {
+    id: "reels-stands",
+    title: "Reels & Stands",
+    icon: Settings,
+    items: [
+      "Empty Reels",
+      "Hydraulic Reel Stands",
+      "Integrated Reel Stand",
+      "Reel Rotator Platform",
+    ],
+  },
+  {
+    id: "gripping-tools",
+    title: "Gripping Tools",
     icon: Wrench,
-    features: [
-      "Professional grade",
-      "Precision engineered",
-      "Ergonomic design",
-      "Maintenance included",
+    items: [
+      "Radial Locking Grip",
+      "Bolt Type Anti Twist Steel Rope Gripper",
+      "Anti Twisting Braided Steel Rope",
     ],
+  },
+  {
+    id: "safety-access",
+    title: "Safety & Access",
+    icon: HardHat,
+    items: ["Anti Twist Running Board", "Stepladder", "Crane Man Buckets"],
+  },
+  {
+    id: "specialized-tools",
+    title: "Specialized Tools",
+    icon: Wrench,
+    items: [
+      "Hand Wrenching Chain Tackle Block",
+      "Swivel Joints",
+      "Manual Presser",
+    ],
+  },
+  {
+    id: "pilot-ropes",
+    title: "Pilot Ropes",
+    icon: Cable,
+    items: ["Silk Insulated Pilot Rope", "Insulated Nylon Pilot Rope"],
   },
 ];
 
@@ -143,63 +135,52 @@ export default function RentalsPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {rentalEquipment.map((equipment) => {
-                const IconComponent = equipment.icon;
+              {equipmentCategories.map((category) => {
+                const IconComponent = category.icon;
                 return (
                   <GdsaCard
-                    key={equipment.id}
-                    className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-yellow-500/30 rounded-2xl overflow-hidden"
+                    key={category.id}
+                    className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-yellow-500/30 rounded-2xl overflow-hidden flex flex-col h-full"
                   >
-                    <div className="h-48 relative overflow-hidden">
-                      <img
-                        src={equipment.image || "/placeholder.svg"}
-                        alt={equipment.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
-                      <div className="absolute top-4 left-4">
+                    <GdsaCardContent className="flex flex-col h-full p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="p-3 bg-yellow-500/10 rounded-xl">
+                            <IconComponent className="h-6 w-6 text-yellow-600" />
+                          </div>
+                          <h3 className="text-xl font-semibold group-hover:text-yellow-600 transition-colors">
+                            {category.title}
+                          </h3>
+                        </div>
                         <Badge className="bg-yellow-500/10 text-yellow-700 border-yellow-500/20 rounded-full">
-                          {equipment.category}
+                          {category.items.length} items
                         </Badge>
                       </div>
-                      <div className="absolute top-4 right-4">
-                        <div className="p-3 bg-yellow-500/10 rounded-xl">
-                          <IconComponent className="h-6 w-6 text-yellow-600" />
-                        </div>
-                      </div>
-                    </div>
 
-                    <GdsaCardContent>
-                      <h3 className="text-xl font-semibold mb-3 group-hover:text-yellow-600 transition-colors">
-                        {equipment.title}
-                      </h3>
-
-                      <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                        {equipment.description}
-                      </p>
-
-                      <div className="mb-6">
-                        <h4 className="text-sm font-semibold text-foreground mb-2">
-                          Key Features:
+                      <div className="flex-grow mb-6">
+                        <h4 className="text-sm font-semibold text-foreground mb-3">
+                          Available Equipment:
                         </h4>
-                        <div className="grid grid-cols-2 gap-1">
-                          {equipment.features.map((feature, index) => (
+                        <div className="space-y-2">
+                          {category.items.map((item, index) => (
                             <div
                               key={index}
-                              className="flex items-center text-xs text-muted-foreground"
+                              className="flex items-center text-sm text-muted-foreground"
                             >
-                              <div className="w-1 h-1 bg-yellow-600 rounded-full mr-2"></div>
-                              {feature}
+                              <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full mr-3"></div>
+                              {item}
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      <Link href="/contact">
-                        <GdsaButton className="w-full bg-yellow-600 hover:bg-yellow-700 rounded-2xl">
-                          Contact for Rental
-                        </GdsaButton>
-                      </Link>
+                      <div className="mt-auto">
+                        <Link href="/contact">
+                          <GdsaButton className="w-full bg-yellow-600 hover:bg-yellow-700 rounded-2xl">
+                            Contact for Rental
+                          </GdsaButton>
+                        </Link>
+                      </div>
                     </GdsaCardContent>
                   </GdsaCard>
                 );
@@ -225,6 +206,20 @@ export default function RentalsPage() {
                 Discuss Your Requirements
               </GdsaButton>
             </Link>
+          </div>
+        </section>
+
+        <section className="py-12 bg-background border-t border-yellow-500/20">
+          <div className="max-w-container mx-auto px-6 lg:px-8 text-center">
+            <div className="bg-yellow-500/5 border border-yellow-500/20 rounded-2xl p-8">
+              <h3 className="text-xl font-semibold text-yellow-700 mb-4">
+                Quality Assurance
+              </h3>
+              <p className="text-muted-foreground text-lg font-medium">
+                ALL EQUIPMENT & TOOLS ARE INSPECTED & TESTED EVERY 3 MONTHS AS
+                PER ESKOM / NTCSA REQUIREMENTS
+              </p>
+            </div>
           </div>
         </section>
       </main>

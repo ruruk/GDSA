@@ -129,7 +129,7 @@ export default function ServicesPage() {
         <PageHeader
           title="Our Services"
           description="Comprehensive engineering and construction solutions including fibre installation, powerline products, project management, and maintenance services."
-          backgroundImage="/placeholder.svg?height=400&width=1200"
+          backgroundImage="/images/GD office.JPG"
         />
 
         {/* Services Overview */}

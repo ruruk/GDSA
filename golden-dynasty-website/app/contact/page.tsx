@@ -57,7 +57,7 @@ export default function ContactPage() {
         <PageHeader
           title="Contact Us"
           description="Get in touch with our engineering team to discuss your infrastructure projects and discover how we can partner for success."
-          backgroundImage="/placeholder.svg?height=400&width=1200"
+          backgroundImage="/images/GD office.JPG"
         />
 
         {/* Contact Section */}

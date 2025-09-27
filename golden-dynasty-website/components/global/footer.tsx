@@ -1,6 +1,15 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Mail, Phone, MapPin, Linkedin, Facebook, Award, Shield, Users } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Facebook,
+  Award,
+  Shield,
+  Users,
+} from "lucide-react";
 
 const navigation = {
   company: [
@@ -21,13 +30,13 @@ const navigation = {
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
   ],
-}
+};
 
 const credentials = [
   { icon: Award, text: "ISO 9001:2015 Certified" },
-  { icon: Shield, text: "BEE Level 3 Contributor" },
-  { icon: Users, text: "CIDB 7EP Registered" },
-]
+  { icon: Shield, text: "B-BBEE Contributor" },
+  { icon: Users, text: "CIDB Certified" },
+];
 
 export default function Footer() {
   return (
@@ -56,7 +65,8 @@ export default function Footer() {
             Powering South Africa's Future
           </h2>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Leading infrastructure development with excellence, innovation, and social responsibility since 1997
+            Leading infrastructure development with excellence, innovation, and
+            social responsibility since 1997
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mt-6">
@@ -130,22 +140,34 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-golden" />
-                <span className="text-slate-300 text-sm">+27 (0) 11 123 4567</span>
+                <span className="text-slate-300 text-sm">
+                  +27 (0) 11 123 4567
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-golden" />
-                <span className="text-slate-300 text-sm">info@goldendynasty.co.za</span>
+                <span className="text-slate-300 text-sm">
+                  info@goldendynasty.co.za
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-golden" />
-                <span className="text-slate-300 text-sm">Johannesburg, South Africa</span>
+                <span className="text-slate-300 text-sm">
+                  Johannesburg, South Africa
+                </span>
               </div>
 
               <div className="flex gap-2 pt-2">
-                <Link href="#" className="bg-white/10 hover:bg-golden/20 p-2 rounded-lg transition-all duration-300">
+                <Link
+                  href="#"
+                  className="bg-white/10 hover:bg-golden/20 p-2 rounded-lg transition-all duration-300"
+                >
                   <Facebook className="h-4 w-4 text-slate-300 hover:text-golden transition-colors duration-300" />
                 </Link>
-                <Link href="#" className="bg-white/10 hover:bg-golden/20 p-2 rounded-lg transition-all duration-300">
+                <Link
+                  href="#"
+                  className="bg-white/10 hover:bg-golden/20 p-2 rounded-lg transition-all duration-300"
+                >
                   <Linkedin className="h-4 w-4 text-slate-300 hover:text-golden transition-colors duration-300" />
                 </Link>
               </div>
@@ -155,13 +177,21 @@ export default function Footer() {
 
         <div className="border-t border-golden/20 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-sm">&copy; 2024 Golden Dynasty SA (Pty) Ltd. All rights reserved.</p>
+            <p className="text-slate-400 text-sm">
+              &copy; 2024 Golden Dynasty SA (Pty) Ltd. All rights reserved.
+            </p>
             <div className="flex items-center gap-6 text-sm text-slate-400">
-              <Link href="/privacy" className="hover:text-golden transition-colors duration-300">
+              <Link
+                href="/privacy"
+                className="hover:text-golden transition-colors duration-300"
+              >
                 Privacy Policy
               </Link>
               <span className="w-px h-4 bg-slate-600" />
-              <Link href="/terms" className="hover:text-golden transition-colors duration-300">
+              <Link
+                href="/terms"
+                className="hover:text-golden transition-colors duration-300"
+              >
                 Terms of Service
               </Link>
             </div>
@@ -169,5 +199,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

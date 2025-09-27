@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap } from "lucide-react"
-import Link from "next/link"
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Zap } from "lucide-react";
+import Link from "next/link";
 
 export default function CTABanner() {
   return (
@@ -21,8 +21,8 @@ export default function CTABanner() {
                 Partnering for Power, Fibre & Future Infrastructure
               </h2>
               <p className="text-lg text-muted-foreground mb-8 text-pretty max-w-2xl">
-                Building tomorrow's connections today with cutting-edge solutions and unwavering commitment to
-                excellence.
+                Building tomorrow's connections today with cutting-edge
+                solutions and unwavering commitment to excellence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
@@ -49,7 +49,7 @@ export default function CTABanner() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-golden/20 to-transparent rounded-2xl transform rotate-3"></div>
                 <img
-                  src="/placeholder.svg?height=400&width=500"
+                  src="/images/Project line 1 .JPG"
                   alt="Golden Dynasty SA infrastructure team"
                   className="relative w-full h-auto rounded-2xl shadow-xl"
                 />
@@ -59,5 +59,5 @@ export default function CTABanner() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -137,7 +137,7 @@ export default function RecruitmentsPage() {
         <PageHeader
           title="Join Our Team"
           description="Explore career opportunities with Golden Dynasty SA and become part of our mission to build South Africa's infrastructure future."
-          backgroundImage="/placeholder.svg?height=400&width=1200"
+          backgroundImage="/images/GD office.JPG"
         />
 
         <div className="py-16 px-4 pb-0">

@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Header from "@/components/global/header"
-import Footer from "@/components/global/footer"
-import PageHeader from "@/components/global/page-header"
-import { GdsaButton } from "@/components/ui/gdsa-button"
-import { Badge } from "@/components/ui/badge"
-import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card"
-import { Zap, MapPin, Ruler } from "lucide-react"
+import { useState } from "react";
+import Header from "@/components/global/header";
+import Footer from "@/components/global/footer";
+import PageHeader from "@/components/global/page-header";
+import { GdsaButton } from "@/components/ui/gdsa-button";
+import { Badge } from "@/components/ui/badge";
+import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card";
+import { Zap, MapPin, Ruler } from "lucide-react";
 
 const flagshipProjects = [
   {
@@ -22,8 +22,13 @@ const flagshipProjects = [
     type: "OPGW",
     description: "Major transmission line project connecting key substations",
   },
-  { name: "Ankerlig", distance: "96.9 km", type: "OPGW", description: "Western Cape transmission network enhancement" },
-]
+  {
+    name: "Ankerlig",
+    distance: "96.9 km",
+    type: "OPGW",
+    description: "Western Cape transmission network enhancement",
+  },
+];
 
 const allProjects = [
   { name: "Albany Project", distance: "57 km", type: "OPGW" },
@@ -78,32 +83,32 @@ const allProjects = [
   { name: "Aries Nieuwenhoop", distance: "74.3 km", type: "OPGW" },
   { name: "Spencer Bambeni", distance: "36.2 km", type: "OPGW" },
   { name: "Tweespruit Driedorp", distance: "55.7 km", type: "OPGW" },
-]
+];
 
 export default function ProjectsPage() {
-  const [activeFilter, setActiveFilter] = useState("all")
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const filterProjects = (projects: typeof allProjects) => {
-    if (activeFilter === "all") return projects
+    if (activeFilter === "all") return projects;
 
     return projects.filter((project) => {
-      const distance = Number.parseFloat(project.distance)
-      if (isNaN(distance)) return activeFilter === "all"
+      const distance = Number.parseFloat(project.distance);
+      if (isNaN(distance)) return activeFilter === "all";
 
       switch (activeFilter) {
         case "under20":
-          return distance < 20
+          return distance < 20;
         case "20to50":
-          return distance >= 20 && distance <= 50
+          return distance >= 20 && distance <= 50;
         case "over50":
-          return distance > 50
+          return distance > 50;
         default:
-          return true
+          return true;
       }
-    })
-  }
+    });
+  };
 
-  const filteredProjects = filterProjects(allProjects)
+  const filteredProjects = filterProjects(allProjects);
 
   return (
     <div className="min-h-screen bg-background">
@@ -112,13 +117,15 @@ export default function ProjectsPage() {
         <PageHeader
           title="Major Projects Completed"
           description="Golden Dynasty SA has successfully delivered numerous high-voltage fibre and powerline projects for Eskom across South Africa. From short-distance installations to multi-hundred-kilometre networks, our track record demonstrates technical expertise, reliability, and scale."
-          backgroundImage="/placeholder.svg?height=400&width=1200"
+          backgroundImage="/images/GD office.JPG"
         />
 
         <section className="sticky top-[76px] z-40 bg-white/95 backdrop-blur-sm border-b shadow-sm py-3">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap gap-3 items-center justify-center">
-              <span className="text-sm font-medium text-muted-foreground">Filter by distance:</span>
+              <span className="text-sm font-medium text-muted-foreground">
+                Filter by distance:
+              </span>
               <GdsaButton
                 variant={activeFilter === "all" ? "default" : "outline"}
                 size="sm"
@@ -156,7 +163,8 @@ export default function ProjectsPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Flagship Projects</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Our most significant infrastructure achievements, spanning hundreds of kilometres
+                Our most significant infrastructure achievements, spanning
+                hundreds of kilometres
               </p>
             </div>
 
@@ -191,9 +199,13 @@ export default function ProjectsPage() {
                     </h3>
                     <div className="flex items-center gap-2 mb-3">
                       <Ruler className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-2xl font-bold text-yellow-600">{project.distance}</span>
+                      <span className="text-2xl font-bold text-yellow-600">
+                        {project.distance}
+                      </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">{project.description}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {project.description}
+                    </p>
                   </GdsaCardContent>
                 </GdsaCard>
               ))}
@@ -204,7 +216,9 @@ export default function ProjectsPage() {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-container">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">All Completed Projects</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                All Completed Projects
+              </h2>
               <p className="text-muted-foreground">
                 {activeFilter === "all"
                   ? `Comprehensive portfolio of ${allProjects.length} successfully delivered projects`
@@ -240,7 +254,9 @@ export default function ProjectsPage() {
                     </h3>
                     <div className="flex items-center gap-2">
                       <Ruler className="h-3 w-3 text-muted-foreground" />
-                      <span className="text-xs font-medium text-blue-600">{project.distance}</span>
+                      <span className="text-xs font-medium text-blue-600">
+                        {project.distance}
+                      </span>
                     </div>
                   </GdsaCardContent>
                 </GdsaCard>
@@ -251,12 +267,17 @@ export default function ProjectsPage() {
 
         <section className="py-16 bg-gradient-to-r from-yellow-500/10 to-blue-500/10">
           <div className="container mx-auto px-4 max-w-container text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready for Your Next Project?</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              Ready for Your Next Project?
+            </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              With over 50 major projects completed, Golden Dynasty SA brings proven expertise to every infrastructure
-              challenge.
+              With over 50 major projects completed, Golden Dynasty SA brings
+              proven expertise to every infrastructure challenge.
             </p>
-            <GdsaButton size="lg" className="bg-yellow-600 hover:bg-yellow-700 rounded-2xl px-8">
+            <GdsaButton
+              size="lg"
+              className="bg-yellow-600 hover:bg-yellow-700 rounded-2xl px-8"
+            >
               Start Your Project
             </GdsaButton>
           </div>
@@ -264,5 +285,5 @@ export default function ProjectsPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

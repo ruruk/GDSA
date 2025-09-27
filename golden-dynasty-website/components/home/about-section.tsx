@@ -52,7 +52,7 @@ export default function AboutSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-golden/10 to-transparent rounded-3xl transform -rotate-2"></div>
             <div className="relative bg-white rounded-3xl p-2 shadow-2xl">
               <img
-                src="/placeholder.svg?height=500&width=600"
+                src="/images/GD office.JPG"
                 alt="Golden Dynasty SA corporate team and projects"
                 className="w-full h-auto rounded-2xl"
               />

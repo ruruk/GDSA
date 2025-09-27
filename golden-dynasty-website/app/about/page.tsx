@@ -12,9 +12,9 @@ import {
   Award,
   Heart,
   CheckCircle,
-  Calendar,
   ChevronLeft,
   ChevronRight,
+  Truck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -59,7 +59,7 @@ export default function AboutPage() {
         <PageHeader
           title="About Golden Dynasty SA"
           description="Since 1997, Golden Dynasty SA has been a trusted partner in powerline, fibre optic, and infrastructure solutions across South Africa. With ISO certification, CIDB registration, and BEE accreditation, we combine technical expertise with a commitment to community development."
-          backgroundImage="/placeholder.svg?height=400&width=1200"
+          backgroundImage="/banners/website_banners_4.jpg"
         />
 
         {/* Company Overview Section */}
@@ -87,27 +87,13 @@ export default function AboutPage() {
                   grinding balls, and OPGW cables have been approved and used by
                   Eskom Holdings SOC Limited and NTCSA. The company has been
                   involved in the installation, testing, and commissioning of
-                  OPGW & ADSS cables and Earthwire for Eskom since 2011.
+                  OPGW / ADSS cables and Earthwire for Eskom since 2011.
                 </p>
-                <div className="flex flex-wrap gap-4 pt-4">
-                  <div className="flex items-center gap-2 bg-golden/10 px-4 py-2 rounded-full">
-                    <Award className="w-5 h-5 text-golden" />
-                    <span className="text-sm font-medium">ISO 9001:2015</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-golden/10 px-4 py-2 rounded-full">
-                    <Shield className="w-5 h-5 text-golden" />
-                    <span className="text-sm font-medium">CIDB 7EP</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-golden/10 px-4 py-2 rounded-full">
-                    <CheckCircle className="w-5 h-5 text-golden" />
-                    <span className="text-sm font-medium">B-BBEE Level 3</span>
-                  </div>
-                </div>
               </div>
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-golden/20 to-amber-600/20 rounded-2xl transform rotate-3"></div>
                 <img
-                  src="/placeholder.svg?height=500&width=600"
+                  src="/images/1 GD office .jpeg"
                   alt="Fibre and powerline project"
                   className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                 />
@@ -195,7 +181,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
               {[
                 {
                   icon: Zap,
@@ -221,18 +207,21 @@ export default function AboutPage() {
                   description:
                     "Fibre repair and maintenance under critical conditions",
                 },
+                {
+                  icon: Truck,
+                  title: "Equipment Rentals",
+                  description:
+                    "Professional equipment rental services including trucks, machinery, and specialized tools",
+                },
               ].map((service, index) => (
                 <div key={index} className="group">
                   <div className="bg-white rounded-xl p-6 shadow-lg border border-golden/20 h-full transition-all duration-300 group-hover:shadow-xl group-hover:border-golden/40">
                     <div className="w-12 h-12 bg-golden/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-golden/20 transition-colors">
                       <service.icon className="w-6 h-6 text-golden" />
                     </div>
-                    <h3 className="text-lg font-semibold text-foreground mb-3">
+                    <h3 className="text-lg font-semibold text-foreground mb-0">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {service.description}
-                    </p>
                   </div>
                 </div>
               ))}
@@ -272,7 +261,7 @@ export default function AboutPage() {
                   image: "/placeholder.svg?height=200&width=300",
                 },
                 {
-                  title: "B-BBEE Level 3",
+                  title: "B-BBEE Contributor",
                   subtitle: "Contributor",
                   description:
                     "Golden Dynasty SA is proud to be a Level 3 Broad-Based Black Economic Empowerment (B-BBEE) contributor, recognized as an empowering supplier with 110% procurement recognition.",
@@ -286,7 +275,7 @@ export default function AboutPage() {
                   image: "/placeholder.svg?height=200&width=300",
                 },
                 {
-                  title: "CIDB 7EP",
+                  title: "CIDB Certificate",
                   subtitle: "Contractor Grading",
                   description:
                     "Golden Dynasty SA is registered with the Construction Industry Development Board (CIDB) as a 7EP Electrical Engineering Works contractor, qualifying us to deliver high-value electrical and powerline projects nationwide.",

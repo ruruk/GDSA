@@ -1,96 +1,240 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Header from "@/components/global/header"
-import Footer from "@/components/global/footer"
-import PageHeader from "@/components/global/page-header"
-import { Badge } from "@/components/ui/badge"
-import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card"
-import { Search, Filter, X, Settings } from "lucide-react"
-import { Input } from "@/components/ui/input"
+import { useState } from "react";
+import Header from "@/components/global/header";
+import Footer from "@/components/global/footer";
+import PageHeader from "@/components/global/page-header";
+import { Badge } from "@/components/ui/badge";
+import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card";
+import { Search, Filter, X, Settings } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 const products = [
   {
-    id: 1,
-    name: "OPGW Cable 48 Core",
-    categories: ["Fiber Optic", "Power Lines"],
+    id: 18,
+    name: "Optical Fibre (OPGW, ADSS, Duct, Fibres)",
+    categories: ["Cables"],
     description:
-      "High-performance optical ground wire combining fiber optic communication with electrical grounding protection.",
-    specs: ["48 fiber cores", "Lightning protection", "Temperature range: -40°C to +85°C"],
+      "High-quality optical fiber cables for telecommunications and data transmission applications.",
+    specs: ["Single/Multi-mode", "Low attenuation", "High bandwidth"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 19,
+    name: "Stringing Equipment (Tensioner/Puller)",
+    categories: ["Equipment"],
+    description:
+      "Professional stringing equipment including tensioners and pullers for efficient cable installation and maintenance.",
+    specs: [
+      "High tension capacity",
+      "Precision control",
+      "Durable construction",
+    ],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 20,
+    name: "Grinding Elements",
+    categories: ["Equipment"],
+    description:
+      "High-quality grinding elements for various industrial applications and maintenance operations.",
+    specs: ["Precision grinding", "Long-lasting", "Multiple specifications"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  // Various Insulators
+  {
+    id: 1,
+    name: "Porcelain & Composite Insulators",
+    categories: ["Various Insulators"],
+    description:
+      "High-performance suspension insulators designed for overhead power line applications with superior electrical and mechanical properties.",
+    specs: [
+      "Voltage: 11kV-400kV",
+      "Porcelain/Composite options",
+      "Weather resistant",
+    ],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
     id: 2,
-    name: "Transmission Tower Kit",
-    categories: ["Infrastructure", "Steel"],
-    description: "Complete galvanized steel transmission tower components for high-voltage power line installations.",
-    specs: ["Hot-dip galvanized", "Wind load: 150 km/h", "Height: 15-45m options"],
+    name: "Power Line Industry Insulators",
+    categories: ["Various Insulators"],
+    description:
+      "Specialized insulators for power transmission and distribution systems, engineered for reliability and longevity.",
+    specs: [
+      "High dielectric strength",
+      "UV resistant",
+      "Multiple voltage ratings",
+    ],
     image: "/placeholder.svg?height=200&width=300",
   },
+
+  // Electrical Equipment
   {
     id: 3,
-    name: "Conductor Clamps",
-    categories: ["Hardware", "Accessories"],
-    description: "Heavy-duty aluminum conductor clamps designed for secure power line connections.",
-    specs: ["Aluminum alloy", "Current rating: 1000A", "Corrosion resistant"],
+    name: "Switchgear Equipment",
+    categories: ["Electrical Equipment"],
+    description:
+      "Complete switchgear solutions for power distribution and control applications in electrical installations.",
+    specs: ["Indoor/Outdoor options", "Up to 36kV", "Arc fault protection"],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
     id: 4,
-    name: "Insulator Strings",
-    categories: ["Insulators", "Safety"],
-    description: "Composite polymer insulators providing superior electrical isolation and weather resistance.",
-    specs: ["Polymer housing", "Voltage: 132kV-400kV", "Hydrophobic surface"],
+    name: "Transformer Equipment",
+    categories: ["Electrical Equipment"],
+    description:
+      "High-quality transformers and associated equipment for power transmission and distribution networks.",
+    specs: ["Oil-filled/Dry type", "Up to 132kV", "Energy efficient"],
     image: "/placeholder.svg?height=200&width=300",
   },
+
+  // Electrical Power Fittings
   {
     id: 5,
-    name: "Earthing System",
-    categories: ["Safety", "Grounding"],
-    description: "Complete earthing solution for electrical installations ensuring personnel and equipment safety.",
-    specs: ["Copper conductors", "Resistance: <1 ohm", "Corrosion protection"],
+    name: "Electrical Protective Fittings",
+    categories: ["Electrical Power Fittings"],
+    description:
+      "Comprehensive range of protective fittings ensuring safe and reliable power line operations.",
+    specs: [
+      "Corrosion resistant",
+      "High tensile strength",
+      "Weather protection",
+    ],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
     id: 6,
-    name: "Splice Enclosures",
-    categories: ["Fiber Optic", "Protection"],
-    description: "Weatherproof fiber optic splice enclosures for outdoor installations.",
-    specs: ["IP68 rated", "96 splice capacity", "UV resistant"],
+    name: "Power Line Fittings",
+    categories: ["Electrical Power Fittings"],
+    description:
+      "Essential fittings for power line construction and maintenance, designed for optimal performance.",
+    specs: ["Galvanized steel", "Multiple configurations", "Easy installation"],
     image: "/placeholder.svg?height=200&width=300",
   },
+
+  // Electrical Hardware Fittings
   {
     id: 7,
-    name: "Vibration Dampers",
-    categories: ["Hardware", "Protection"],
-    description: "Stockbridge dampers reducing conductor vibration and preventing fatigue damage.",
-    specs: ["Aluminum construction", "Frequency range: 5-100 Hz", "Weather resistant"],
+    name: "Conductor Hardware",
+    categories: ["Electrical Hardware Fittings"],
+    description:
+      "Specialized hardware fittings for conductor installation and support in power transmission systems.",
+    specs: ["Aluminum alloy", "High conductivity", "Vibration resistant"],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
     id: 8,
-    name: "Cable Pulling Equipment",
-    categories: ["Tools", "Installation"],
-    description: "Professional cable pulling systems for efficient fiber optic and power cable installation.",
-    specs: ["Pull force: 50kN", "Remote control", "Variable speed"],
+    name: "Tower Hardware Fittings",
+    categories: ["Electrical Hardware Fittings"],
+    description:
+      "Complete range of hardware fittings for transmission tower construction and maintenance.",
+    specs: [
+      "Hot-dip galvanized",
+      "High strength steel",
+      "Corrosion protection",
+    ],
     image: "/placeholder.svg?height=200&width=300",
   },
-]
 
-const categories = ["All", "Fiber Optic", "Infrastructure", "Hardware", "Safety", "Tools", "Protection", "Accessories"]
+  // Cables
+  {
+    id: 11,
+    name: "ACSR Conductor",
+    categories: ["Cables"],
+    description:
+      "Aluminum Conductor Steel Reinforced cable for overhead power transmission applications.",
+    specs: [
+      "High strength-to-weight ratio",
+      "Corrosion resistant",
+      "Various conductor sizes",
+    ],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 12,
+    name: "AAAC Conductor",
+    categories: ["Cables"],
+    description:
+      "All Aluminum Alloy Conductor offering excellent electrical and mechanical properties.",
+    specs: ["Lightweight design", "High conductivity", "Corrosion resistant"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 13,
+    name: "AAC Conductor",
+    categories: ["Cables"],
+    description:
+      "All Aluminum Conductor for overhead power transmission with superior electrical performance.",
+    specs: ["Pure aluminum", "High conductivity", "Cost-effective solution"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 14,
+    name: "ACS Wires",
+    categories: ["Cables"],
+    description:
+      "Aluminum Clad Steel wires providing excellent strength and conductivity for various applications.",
+    specs: [
+      "Steel core strength",
+      "Aluminum conductivity",
+      "Corrosion protection",
+    ],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 15,
+    name: "Radio Frequency Cable",
+    categories: ["Cables"],
+    description:
+      "High-performance RF cables for communication and broadcasting applications in power systems.",
+    specs: ["Low loss design", "50/75 ohm impedance", "Weather resistant"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 16,
+    name: "Earth Wire & Guy Wire",
+    categories: ["Cables"],
+    description:
+      "Grounding and support wires essential for electrical safety and structural support.",
+    specs: ["Galvanized steel", "High tensile strength", "Corrosion resistant"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    id: 17,
+    name: "Submarine Cables",
+    categories: ["Cables"],
+    description:
+      "Specialized underwater cables for power transmission across water bodies and marine environments.",
+    specs: ["Waterproof design", "Armored construction", "Deep water rated"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+];
+
+const categories = [
+  "All",
+  "Various Insulators",
+  "Electrical Equipment",
+  "Electrical Power Fittings",
+  "Electrical Hardware Fittings",
+  "Cables",
+  "Equipment",
+];
 
 export default function ProductsPage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("All")
-  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch =
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === "All" || product.categories.includes(selectedCategory)
-    return matchesSearch && matchesCategory
-  })
+      product.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" ||
+      product.categories.includes(selectedCategory);
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -99,7 +243,7 @@ export default function ProductsPage() {
       <PageHeader
         title="Our Products"
         description="Discover our comprehensive range of high-voltage electrical products and solutions designed for power transmission and distribution projects across South Africa."
-        backgroundImage="/placeholder.svg?height=400&width=1200"
+        backgroundImage="/images/GD office.JPG"
       />
 
       <main className="flex-1">
@@ -123,7 +267,11 @@ export default function ProductsPage() {
             className={`
             fixed lg:sticky top-[76px] left-0 z-50 w-80 bg-white border-r shadow-lg lg:shadow-none
             h-[calc(100vh-76px)] overflow-y-auto transition-transform duration-300
-            ${isMobileFilterOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
+            ${
+              isMobileFilterOpen
+                ? "translate-x-0"
+                : "-translate-x-full lg:translate-x-0"
+            }
           `}
           >
             <div className="p-6">
@@ -142,7 +290,9 @@ export default function ProductsPage() {
 
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-medium mb-3 text-sm text-muted-foreground uppercase tracking-wide">Categories</h4>
+                  <h4 className="font-medium mb-3 text-sm text-muted-foreground uppercase tracking-wide">
+                    Categories
+                  </h4>
                   <div className="space-y-2">
                     {categories.map((category) => (
                       <button
@@ -158,7 +308,11 @@ export default function ProductsPage() {
                         `}
                       >
                         {category}
-                        {category === "All" && <span className="ml-2 text-sm opacity-75">({products.length})</span>}
+                        {category === "All" && (
+                          <span className="ml-2 text-sm opacity-75">
+                            ({products.length})
+                          </span>
+                        )}
                       </button>
                     ))}
                   </div>
@@ -180,7 +334,8 @@ export default function ProductsPage() {
                 <div className="mb-8">
                   <h1 className="text-3xl font-bold mb-2">Our Products</h1>
                   <p className="text-muted-foreground">
-                    Showing {filteredProducts.length} of {products.length} products
+                    Showing {filteredProducts.length} of {products.length}{" "}
+                    products
                     {selectedCategory !== "All" && ` in ${selectedCategory}`}
                   </p>
                 </div>
@@ -207,33 +362,18 @@ export default function ProductsPage() {
                           </h3>
 
                           <div className="flex flex-wrap gap-1 mb-3">
-                            {product.categories.slice(0, 2).map((category, index) => (
-                              <Badge
-                                key={index}
-                                variant="secondary"
-                                className="text-xs bg-yellow-500/10 text-yellow-700 border-yellow-500/20 rounded-full"
-                              >
-                                {category}
-                              </Badge>
-                            ))}
+                            {product.categories
+                              .slice(0, 2)
+                              .map((category, index) => (
+                                <Badge
+                                  key={index}
+                                  variant="secondary"
+                                  className="text-xs bg-yellow-500/10 text-yellow-700 border-yellow-500/20 rounded-full"
+                                >
+                                  {category}
+                                </Badge>
+                              ))}
                           </div>
-                        </div>
-
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{product.description}</p>
-
-                        <div className="space-y-2">
-                          <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide flex items-center gap-1">
-                            <Settings className="h-3 w-3" />
-                            Key Specs
-                          </h4>
-                          <ul className="space-y-1">
-                            {product.specs.slice(0, 2).map((spec, index) => (
-                              <li key={index} className="text-xs text-muted-foreground flex items-center gap-2">
-                                <div className="w-1 h-1 bg-yellow-500 rounded-full" />
-                                {spec}
-                              </li>
-                            ))}
-                          </ul>
                         </div>
                       </GdsaCardContent>
                     </GdsaCard>
@@ -245,8 +385,12 @@ export default function ProductsPage() {
                     <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Search className="h-8 w-8 text-gray-400" />
                     </div>
-                    <h3 className="text-lg font-medium mb-2">No products found</h3>
-                    <p className="text-muted-foreground">Try adjusting your search or filter criteria</p>
+                    <h3 className="text-lg font-medium mb-2">
+                      No products found
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Try adjusting your search or filter criteria
+                    </p>
                   </div>
                 )}
               </div>
@@ -256,5 +400,5 @@ export default function ProductsPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

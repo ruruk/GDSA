@@ -13,13 +13,18 @@ const navigation = [
     dropdown: null,
   },
   {
-    name: "Company",
-    href: "#",
-    dropdown: [
-      { name: "About Us", href: "/about" },
-      { name: "Careers", href: "/recruitment" },
-    ],
+    name: "About Us",
+    href: "/about",
+    dropdown: null,
   },
+  // {
+  //   name: "Company",
+  //   href: "#",
+  //   dropdown: [
+  //     { name: "About Us", href: "/about" },
+  //     { name: "Careers", href: "/recruitment" },
+  //   ],
+  // },
   {
     name: "Solutions",
     href: "#",
