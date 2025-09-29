@@ -93,7 +93,7 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-golden/20 to-amber-600/20 rounded-2xl transform rotate-3"></div>
                 <img
-                  src="/images/1 GD office .jpeg"
+                  src="/banners/website_banners_4.jpg"
                   alt="Fibre and powerline project"
                   className="relative rounded-2xl shadow-2xl w-full h-[400px] object-cover"
                 />
@@ -249,58 +249,33 @@ export default function AboutPage() {
               {[
                 {
                   title: "ISO 9001:2015",
-                  subtitle: "Quality Management System",
-                  description:
-                    "Golden Dynasty SA is ISO 9001:2015 certified, demonstrating our commitment to international quality standards in all projects and operations.",
-                  specs: [
-                    "Certificate Number: SA1659",
-                    "Originally Approved: 26 May 2009",
-                    "Current Validity: 10 Aug 2025 – 10 Aug 2026",
-                    "Issuing Body: QAS International (UK)",
-                  ],
-                  image: "/placeholder.svg?height=200&width=300",
+                  icon: Award,
+                  color: "from-blue-500 to-blue-600",
                 },
                 {
                   title: "B-BBEE Contributor",
-                  subtitle: "Contributor",
-                  description:
-                    "Golden Dynasty SA is proud to be a Level 3 Broad-Based Black Economic Empowerment (B-BBEE) contributor, recognized as an empowering supplier with 110% procurement recognition.",
-                  specs: [
-                    "Verification Agency: Honeycomb BEE Ratings",
-                    "Level: 3 Contributor",
-                    "Procurement Recognition: 110%",
-                    "Black Woman Ownership: 27.61%",
-                    "Certificate Validity: 11 Dec 2024 – 10 Dec 2025",
-                  ],
-                  image: "/placeholder.svg?height=200&width=300",
+                  icon: CheckCircle,
+                  color: "from-emerald-500 to-emerald-600",
                 },
                 {
                   title: "CIDB Certificate",
-                  subtitle: "Contractor Grading",
-                  description:
-                    "Golden Dynasty SA is registered with the Construction Industry Development Board (CIDB) as a 7EP Electrical Engineering Works contractor, qualifying us to deliver high-value electrical and powerline projects nationwide.",
-                  specs: [
-                    "CRS Number: 10110192",
-                    "Grade: 7EP (Electrical Engineering Works)",
-                    "Status: Active",
-                    "Valid Until: 27 Sep 2025",
-                  ],
-                  image: "/placeholder.svg?height=200&width=300",
+                  icon: Building2,
+                  color: "from-orange-500 to-orange-600",
                 },
               ].map((cert, index) => (
                 <div
                   key={index}
                   className="bg-white rounded-xl overflow-hidden shadow-lg border border-golden/20 group hover:shadow-xl transition-all duration-300 flex flex-col"
                 >
-                  <div className="p-6 flex flex-col flex-1 pr-6 pb-2.5">
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
+                  <div className="p-6 flex flex-col flex-1 pr-6 items-center text-center pb-6">
+                    <div
+                      className={`w-16 h-16 bg-gradient-to-r ${cert.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <cert.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">
                       {cert.title}
                     </h3>
-                    <p className="text-golden font-medium mb-3">
-                      {cert.subtitle}
-                    </p>
-
-                    <Link href="/accreditations" className="mt-auto"></Link>
                   </div>
                 </div>
               ))}
@@ -373,42 +348,6 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Products Section */}
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-golden/20 mb-8">
-              <h3 className="text-2xl font-bold text-center mb-6 text-foreground">
-                Cables & Conductors
-              </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[
-                  "OPGW (Optical Fibre Composite Ground Wire & Communication Optical Fibre)",
-                  "ADSS Cable",
-                  "ACSR (Aluminium Conductor Steel Reinforced)",
-                  "AAC (All Aluminium Alloy Conductors)",
-                  "ACS Stranded Conductor",
-                  "AAAC (All Aluminum Alloy Conductor)",
-                  "ACS Wires",
-                ].map((product, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 p-3 bg-golden/5 rounded-lg"
-                  >
-                    <CheckCircle className="w-4 h-4 text-golden flex-shrink-0" />
-                    <span className="text-sm text-foreground">{product}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Quality Statement */}
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-golden/20 text-center">
-              <div className="w-16 h-1 bg-gradient-to-r from-golden to-amber-600 rounded-full mx-auto mb-6"></div>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                We look forward to establishing a long term mutually beneficial
-                relationship with all our clients.
-              </p>
-              <div className="w-16 h-1 bg-gradient-to-r from-golden to-amber-600 rounded-full mx-auto mt-6"></div>
             </div>
           </div>
         </section>

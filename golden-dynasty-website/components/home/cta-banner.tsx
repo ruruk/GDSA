@@ -49,9 +49,10 @@ export default function CTABanner() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-golden/20 to-transparent rounded-2xl transform rotate-3"></div>
                 <img
-                  src="/images/Project line 1 .JPG"
+                  src="/images/Minerva Line 1 .jpeg"
                   alt="Golden Dynasty SA infrastructure team"
-                  className="relative w-full h-auto rounded-2xl shadow-xl"
+                  className="relative w-full h-full rounded-2xl shadow-xl object-cover"
+                  draggable={false}
                 />
               </div>
             </div>
