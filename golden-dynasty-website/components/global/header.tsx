@@ -36,18 +36,9 @@ const navigation = [
     ],
   },
   {
-    name: "Social Impact",
+    name: "Social Development",
     href: "/social-development",
-    dropdown: [
-      {
-        name: "Community Contributions",
-        href: "/social-development#community",
-      },
-      {
-        name: "Donations & Development",
-        href: "/social-development#donations",
-      },
-    ],
+    dropdown: null,
   },
 ];
 

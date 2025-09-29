@@ -7,7 +7,16 @@ import PageHeader from "@/components/global/page-header";
 import { GdsaButton } from "@/components/ui/gdsa-button";
 import { Badge } from "@/components/ui/badge";
 import { GdsaCard, GdsaCardContent } from "@/components/ui/gdsa-card";
-import { Zap, MapPin, Ruler } from "lucide-react";
+import { CenteredCarousel } from "@/components/ui/centered-carousel";
+import {
+  Zap,
+  MapPin,
+  Ruler,
+  CheckCircle,
+  TrendingUp,
+  Award,
+  Target,
+} from "lucide-react";
 
 const flagshipProjects = [
   {
@@ -21,6 +30,12 @@ const flagshipProjects = [
     distance: "166 km",
     type: "OPGW",
     description: "Major transmission line project connecting key substations",
+  },
+  {
+    name: "Kusile Lulamisa",
+    distance: "150 km",
+    type: "OPGW",
+    description: "Western Cape transmission network enhancement",
   },
   {
     name: "Ankerlig",
@@ -168,47 +183,41 @@ export default function ProjectsPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {flagshipProjects.map((project, index) => (
-                <GdsaCard
-                  key={index}
-                  className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-yellow-500/30 rounded-2xl overflow-hidden"
-                >
-                  <div className="h-48 bg-gradient-to-br from-yellow-500/20 to-blue-500/20 relative overflow-hidden">
-                    <img
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/shutterstock_1549253021-e1584678785841%281%29%281%29%281%29%281%29%281%29%281%29%281%29-3mSfR02oaYFFpCWIspmbEuHSyUN5fq.jpg"
-                      alt={project.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
-                  </div>
-                  <GdsaCardContent>
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="p-3 bg-yellow-500/10 rounded-xl">
-                        <Zap className="h-6 w-6 text-yellow-600" />
+            <div className="mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {flagshipProjects.map((project, index) => (
+                  <GdsaCard
+                    key={index}
+                    className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-yellow-500/30 rounded-2xl overflow-hidden h-auto hover:-translate-y-2"
+                  >
+                    <GdsaCardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="p-3 bg-yellow-500/10 rounded-xl">
+                          <Zap className="h-6 w-6 text-yellow-600" />
+                        </div>
+                        <Badge
+                          variant="secondary"
+                          className="bg-yellow-500/10 text-yellow-700 border-yellow-500/20 rounded-full"
+                        >
+                          {project.type}
+                        </Badge>
                       </div>
-                      <Badge
-                        variant="secondary"
-                        className="bg-yellow-500/10 text-yellow-700 border-yellow-500/20 rounded-full"
-                      >
-                        {project.type}
-                      </Badge>
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-yellow-600 transition-colors">
-                      {project.name}
-                    </h3>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Ruler className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-2xl font-bold text-yellow-600">
-                        {project.distance}
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {project.description}
-                    </p>
-                  </GdsaCardContent>
-                </GdsaCard>
-              ))}
+                      <h3 className="text-xl font-semibold mb-3 group-hover:text-yellow-600 transition-colors">
+                        {project.name}
+                      </h3>
+                      <div className="flex items-center gap-2 mb-4">
+                        <Ruler className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-2xl font-bold text-yellow-600">
+                          {project.distance}
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {project.description}
+                      </p>
+                    </GdsaCardContent>
+                  </GdsaCard>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -226,41 +235,96 @@ export default function ProjectsPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filteredProjects.map((project, index) => (
-                <GdsaCard
-                  key={index}
-                  className="group hover:shadow-lg transition-all duration-300 hover:border-yellow-500/30 rounded-2xl overflow-hidden hover:-translate-y-1"
-                >
-                  <div className="h-32 md:h24 bg-gradient-to-br from-blue-500/20 to-yellow-500/20 relative overflow-hidden">
-                    <img
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/shutterstock_1549253021-e1584678785841%281%29%281%29%281%29%281%29%281%29%281%29%281%29-3mSfR02oaYFFpCWIspmbEuHSyUN5fq.jpg"
-                      alt={project.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
-                  </div>
-                  <GdsaCardContent className="p-3">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="p-1.5 bg-blue-500/10 rounded-xl">
-                        <MapPin className="h-3 w-3 text-blue-600" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProjects.map((project, index) => {
+                const distance = Number.parseFloat(project.distance);
+                const isLongDistance = !isNaN(distance) && distance > 50;
+                const isMediumDistance =
+                  !isNaN(distance) && distance >= 20 && distance <= 50;
+                const isShortDistance = !isNaN(distance) && distance < 20;
+
+                return (
+                  <GdsaCard
+                    key={index}
+                    className="group hover:shadow-xl transition-all duration-300 hover:border-yellow-500/30 rounded-2xl overflow-hidden hover:-translate-y-2 bg-gradient-to-br from-white to-gray-50/50"
+                  >
+                    <GdsaCardContent className="p-5">
+                      {/* Header with icon and badge */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div
+                          className={`p-3 rounded-xl ${
+                            isLongDistance
+                              ? "bg-red-500/10"
+                              : isMediumDistance
+                              ? "bg-yellow-500/10"
+                              : "bg-green-500/10"
+                          }`}
+                        >
+                          {isLongDistance ? (
+                            <TrendingUp className="h-5 w-5 text-red-600" />
+                          ) : isMediumDistance ? (
+                            <Target className="h-5 w-5 text-yellow-600" />
+                          ) : (
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          )}
+                        </div>
+                        <Badge
+                          variant="secondary"
+                          className={`text-xs rounded-full ${
+                            isLongDistance
+                              ? "bg-red-500/10 text-red-700 border-red-500/20"
+                              : isMediumDistance
+                              ? "bg-yellow-500/10 text-yellow-700 border-yellow-500/20"
+                              : "bg-green-500/10 text-green-700 border-green-500/20"
+                          }`}
+                        >
+                          {project.type}
+                        </Badge>
                       </div>
-                      <Badge variant="outline" className="text-xs rounded-full">
-                        {project.type}
-                      </Badge>
-                    </div>
-                    <h3 className="font-semibold mb-1 group-hover:text-yellow-600 transition-colors text-xl">
-                      {project.name}
-                    </h3>
-                    <div className="flex items-center gap-2">
-                      <Ruler className="h-3 w-3 text-muted-foreground" />
-                      <span className="text-xs font-medium text-blue-600">
-                        {project.distance}
-                      </span>
-                    </div>
-                  </GdsaCardContent>
-                </GdsaCard>
-              ))}
+
+                      {/* Project name */}
+                      <h3 className="font-bold mb-3 group-hover:text-yellow-600 transition-colors text-lg leading-tight">
+                        {project.name}
+                      </h3>
+
+                      {/* Distance with enhanced styling */}
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="p-2 bg-blue-500/10 rounded-lg">
+                          <Ruler className="h-4 w-4 text-blue-600" />
+                        </div>
+                        <div>
+                          <span
+                            className={`text-lg font-bold ${
+                              isLongDistance
+                                ? "text-red-600"
+                                : isMediumDistance
+                                ? "text-yellow-600"
+                                : "text-green-600"
+                            }`}
+                          >
+                            {project.distance}
+                          </span>
+                          <p className="text-xs text-muted-foreground">
+                            {isLongDistance
+                              ? "Major Project"
+                              : isMediumDistance
+                              ? "Medium Project"
+                              : "Local Project"}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Status indicator */}
+                      <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
+                        <Award className="h-4 w-4 text-yellow-500" />
+                        <span className="text-sm font-medium text-green-600">
+                          Completed
+                        </span>
+                      </div>
+                    </GdsaCardContent>
+                  </GdsaCard>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -64,9 +64,6 @@ export default function SocialDevelopmentPage() {
                       <span className="inline-block px-3 py-1 text-sm font-medium bg-accent/10 text-accent rounded-full">
                         {contribution.category}
                       </span>
-                      <p className="text-sm text-muted-foreground font-medium">
-                        {contribution.date}
-                      </p>
                     </div>
 
                     <h3 className="text-xl lg:text-2xl font-bold text-card-foreground mb-3 group-hover:text-primary transition-colors duration-300">
