@@ -137,16 +137,16 @@ export default function ContactPage() {
                           </h3>
                           <div className="space-y-1">
                             <p className="text-muted-foreground">
-                              General:{" "}
+                              Gordon:{" "}
                               <a
-                                href="mailto:info@goldendynasty.co.za"
+                                href="mailto:gordon@goldendynasty.co.za"
                                 className="hover:text-golden transition-colors"
                               >
-                                info@goldendynasty.co.za
+                                gordon@goldendynasty.co.za
                               </a>
                             </p>
                             <p className="text-muted-foreground">
-                              HR:{" "}
+                              Melanie:{" "}
                               <a
                                 href="mailto:melanie@goldendynasty.co.za"
                                 className="hover:text-golden transition-colors"

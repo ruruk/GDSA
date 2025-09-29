@@ -144,11 +144,19 @@ export default function Footer() {
                   +27 (0) 11 123 4567
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-golden" />
-                <span className="text-slate-300 text-sm">
-                  info@goldendynasty.co.za
-                </span>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-golden" />
+                  <span className="text-slate-300 text-sm">
+                    gordon@goldendynasty.co.za
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-golden" />
+                  <span className="text-slate-300 text-sm">
+                    melanie@goldendynasty.co.za
+                  </span>
+                </div>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-golden" />
