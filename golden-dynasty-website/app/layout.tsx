@@ -129,8 +129,8 @@ export const metadata: Metadata = {
   category: "Engineering & Construction",
   classification: "Business",
   other: {
-    "contact:phone_number": "+27 (0) 11 123 4567",
-    "contact:email": "info@goldendynasty.co.za",
+    "contact:phone_number": "Tel. 079-377 7186 / 061-2895338",
+    "contact:email": "gordon@goldendynasty.co.za",
     "contact:country_name": "South Africa",
     "contact:region": "Gauteng",
     "contact:locality": "Johannesburg",
@@ -247,11 +247,11 @@ export default function RootLayout({
         />
         <meta
           name="business:contact_data:phone_number"
-          content="+27 (0) 11 123 4567"
+          content="Tel. 079-377 7186 / 061-2895338"
         />
         <meta
           name="business:contact_data:email"
-          content="info@goldendynasty.co.za"
+          content="gordon@goldendynasty.co.za"
         />
 
         {/* Performance Hints */}
@@ -306,23 +306,23 @@ export default function RootLayout({
               contactPoint: [
                 {
                   "@type": "ContactPoint",
-                  telephone: "+27-11-123-4567",
+                  telephone: "079-377 7186",
                   contactType: "customer service",
-                  email: "info@goldendynasty.co.za",
+                  email: "gordon@goldendynasty.co.za",
                   availableLanguage: "English",
                 },
                 {
                   "@type": "ContactPoint",
-                  telephone: "+27-11-123-4567",
+                  telephone: "079-377 7186",
                   contactType: "sales",
-                  email: "sales@goldendynasty.co.za",
+                  email: "gordon@goldendynasty.co.za",
                   availableLanguage: "English",
                 },
                 {
                   "@type": "ContactPoint",
-                  telephone: "+27-11-123-4567",
+                  telephone: "079-377 7186",
                   contactType: "technical support",
-                  email: "support@goldendynasty.co.za",
+                  email: "melanie@goldendynasty.co.za",
                   availableLanguage: "English",
                 },
               ],
@@ -434,8 +434,8 @@ export default function RootLayout({
               "@id": "https://goldendynasty.co.za/#organization",
               name: "Golden Dynasty SA (Pty) Ltd",
               image: "https://goldendynasty.co.za/og-image.png",
-              telephone: "+27-11-123-4567",
-              email: "info@goldendynasty.co.za",
+              telephone: "079-377 7186",
+              email: "gordon@goldendynasty.co.za",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "269 Fleming Rd, Meadowdale",

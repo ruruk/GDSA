@@ -74,12 +74,10 @@ const allProjects = [
   { name: "Borotho PPRust", distance: "16.6 km", type: "OPGW" },
   { name: "Ariadne Eros", distance: "31 km", type: "OPGW" },
   { name: "Borotho Sandsloot", distance: "16.6 km", type: "OPGW" },
-  { name: "Kusile Lulamisa Section A", distance: "N/A", type: "OPGW" },
+  { name: "Kusile Lulamisa", distance: "N/A", type: "OPGW" },
   { name: "Blaauwberg Rietvlei", distance: "3.5 km", type: "OPGW" },
-  { name: "Kusile Lulamisa Section B", distance: "N/A", type: "OPGW" },
   { name: "Letaba Tarentaal", distance: "10.3 km", type: "OPGW" },
   { name: "Melkspruit Riebeeck", distance: "30.9 km", type: "OPGW" },
-  { name: "Slilamela Tubatse", distance: "77 km", type: "OPGW" },
   { name: "Nkonka Bendigo", distance: "58.2 km", type: "OPGW" },
   { name: "Everest Witpan", distance: "20.18 km", type: "OPGW" },
   { name: "Elloit Ugie", distance: "8.6 km", type: "OPGW" },
@@ -135,44 +133,6 @@ export default function ProjectsPage() {
           backgroundImage="/images/GD office.JPG"
         />
 
-        <section className="sticky top-[76px] z-40 bg-white/95 backdrop-blur-sm border-b shadow-sm py-3">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap gap-3 items-center justify-center">
-              <span className="text-sm font-medium text-muted-foreground">
-                Filter by distance:
-              </span>
-              <GdsaButton
-                variant={activeFilter === "all" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveFilter("all")}
-              >
-                All Projects ({allProjects.length})
-              </GdsaButton>
-              <GdsaButton
-                variant={activeFilter === "under20" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveFilter("under20")}
-              >
-                Under 20km
-              </GdsaButton>
-              <GdsaButton
-                variant={activeFilter === "20to50" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveFilter("20to50")}
-              >
-                20-50km
-              </GdsaButton>
-              <GdsaButton
-                variant={activeFilter === "over50" ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveFilter("over50")}
-              >
-                50km+
-              </GdsaButton>
-            </div>
-          </div>
-        </section>
-
         <section className="bg-background py-16 pb-0">
           <div className="container mx-auto px-4 max-w-container">
             <div className="text-center mb-12">
@@ -226,12 +186,10 @@ export default function ProjectsPage() {
           <div className="container mx-auto px-4 max-w-container">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">
-                All Completed Projects
+                List of Completed Projects
               </h2>
               <p className="text-muted-foreground">
-                {activeFilter === "all"
-                  ? `Comprehensive portfolio of ${allProjects.length} successfully delivered projects`
-                  : `Showing ${filteredProjects.length} projects matching your filter`}
+                Some of the projects among all other 185 completed projects
               </p>
             </div>
 

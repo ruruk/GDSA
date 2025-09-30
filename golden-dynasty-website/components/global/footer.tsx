@@ -141,7 +141,7 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-golden" />
                 <span className="text-slate-300 text-sm">
-                  +27 (0) 11 123 4567
+                  Tel. 079-377 7186 / 061-2895338
                 </span>
               </div>
               <div className="space-y-2">

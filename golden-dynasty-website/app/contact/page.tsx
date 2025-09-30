@@ -113,10 +113,10 @@ export default function ContactPage() {
                           </h3>
                           <p className="text-muted-foreground">
                             <a
-                              href="tel:+27111234567"
+                              href="tel:+27793777186"
                               className="hover:text-golden transition-colors"
                             >
-                              +27 (0) 11 123 4567
+                              Tel. 079-377 7186 / 061-2895338
                             </a>
                           </p>
                         </div>
@@ -174,10 +174,7 @@ export default function ContactPage() {
                           <div className="space-y-1 text-muted-foreground">
                             <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
                             <p>Saturday: 8:00 AM - 1:00 PM</p>
-                            <p>Sunday: Closed</p>
-                            <p className="text-sm text-golden mt-2">
-                              Emergency services available 24/7
-                            </p>
+                            <p>Saturday and Sunday: Closed</p>
                           </div>
                         </div>
                       </div>

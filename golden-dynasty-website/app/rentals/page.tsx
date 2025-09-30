@@ -15,15 +15,16 @@ const equipmentCategories = [
     items: ["Crane Trucks", "4 x 4 Bakkies", "Passenger Carrier"],
   },
   {
-    id: "hydraulic-equipment",
-    title: "Hydraulic Equipment",
+    id: "stringing-equipment",
+    title: "Stringing Equipment",
     icon: Settings,
     items: [
       "Hydraulic Puller",
       "Hydraulic Tensioner",
       "Hydraulic Cutter / Grinder",
       "Hydraulic Pumps",
-      "Stringing Equipment",
+      "Various diameters of stringing blocks",
+      "Double Pulleys and Hand Pulley for hand lines",
     ],
   },
   {
@@ -45,6 +46,7 @@ const equipmentCategories = [
       "Helicopter Stringing Blocks",
       "Single Sheave Stringing Block",
       "Cable Mesh Sock",
+      "Guy grips",
     ],
   },
   {
@@ -64,6 +66,7 @@ const equipmentCategories = [
     icon: Wrench,
     items: [
       "Radial Locking Grip",
+      "OPGW regulation alu. clamps",
       "Bolt Type Anti Twist Steel Rope Gripper",
       "Anti Twisting Braided Steel Rope",
     ],

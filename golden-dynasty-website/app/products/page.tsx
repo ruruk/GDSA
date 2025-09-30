@@ -17,7 +17,7 @@ const products = [
     description:
       "High-quality optical fiber cables for telecommunications and data transmission applications.",
     specs: ["Single/Multi-mode", "Low attenuation", "High bandwidth"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Optical Fibre (OPGW, ADSS, Duct, Fibres).png",
   },
   {
     id: 19,
@@ -30,7 +30,7 @@ const products = [
       "Precision control",
       "Durable construction",
     ],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Stringing Equipment (Tensioner/Puller).png",
   },
   {
     id: 20,
@@ -39,7 +39,7 @@ const products = [
     description:
       "High-quality grinding elements for various industrial applications and maintenance operations.",
     specs: ["Precision grinding", "Long-lasting", "Multiple specifications"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Grinding balls.png",
   },
   // Various Insulators
   {
@@ -77,7 +77,7 @@ const products = [
     description:
       "Complete switchgear solutions for power distribution and control applications in electrical installations.",
     specs: ["Indoor/Outdoor options", "Up to 36kV", "Arc fault protection"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Switchgear Equipment.png",
   },
   {
     id: 4,
@@ -86,7 +86,7 @@ const products = [
     description:
       "High-quality transformers and associated equipment for power transmission and distribution networks.",
     specs: ["Oil-filled/Dry type", "Up to 132kV", "Energy efficient"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Transformer Equipment.png",
   },
 
   // Electrical Power Fittings
@@ -101,7 +101,7 @@ const products = [
       "High tensile strength",
       "Weather protection",
     ],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Electrical Protective Fittings.png",
   },
   {
     id: 6,
@@ -110,7 +110,7 @@ const products = [
     description:
       "Essential fittings for power line construction and maintenance, designed for optimal performance.",
     specs: ["Galvanized steel", "Multiple configurations", "Easy installation"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Power Line Fittings.png",
   },
 
   // Electrical Hardware Fittings
@@ -121,7 +121,7 @@ const products = [
     description:
       "Specialized hardware fittings for conductor installation and support in power transmission systems.",
     specs: ["Aluminum alloy", "High conductivity", "Vibration resistant"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Conductor Hardware.png",
   },
   {
     id: 8,
@@ -134,7 +134,7 @@ const products = [
       "High strength steel",
       "Corrosion protection",
     ],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Tower Hardware Fittings.png",
   },
 
   // Cables
@@ -149,7 +149,7 @@ const products = [
       "Corrosion resistant",
       "Various conductor sizes",
     ],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/ACSR Conductor.png",
   },
   {
     id: 12,
@@ -158,7 +158,7 @@ const products = [
     description:
       "All Aluminum Alloy Conductor offering excellent electrical and mechanical properties.",
     specs: ["Lightweight design", "High conductivity", "Corrosion resistant"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/AAAC Conductor.png",
   },
   {
     id: 13,
@@ -167,7 +167,7 @@ const products = [
     description:
       "All Aluminum Conductor for overhead power transmission with superior electrical performance.",
     specs: ["Pure aluminum", "High conductivity", "Cost-effective solution"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/AAC Conductor.png",
   },
   {
     id: 14,
@@ -207,7 +207,7 @@ const products = [
     description:
       "Specialized underwater cables for power transmission across water bodies and marine environments.",
     specs: ["Waterproof design", "Armored construction", "Deep water rated"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Underwater cable.png",
   },
 ];
 

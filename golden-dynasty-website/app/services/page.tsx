@@ -45,19 +45,6 @@ const services = [
     category: "Cable Solutions",
   },
   {
-    icon: Settings,
-    title: "Power Line Construction",
-    description:
-      "Complete power line construction and maintenance services for electrical infrastructure.",
-    features: [
-      "Transmission lines",
-      "Distribution networks",
-      "Substation work",
-      "Emergency repairs",
-    ],
-    category: "Construction",
-  },
-  {
     icon: Shield,
     title: "Quality Assurance",
     description:
@@ -184,14 +171,6 @@ export default function ServicesPage() {
                           </li>
                         ))}
                       </ul>
-
-                      <Button
-                        variant="outline"
-                        className="w-full group-hover:bg-golden group-hover:text-white transition-colors bg-transparent"
-                      >
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
                     </CardContent>
                   </Card>
                 );
@@ -226,7 +205,7 @@ export default function ServicesPage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="tel:+27123456789">
+                <a href="tel:+27793777186">
                   <Phone className="mr-2 h-5 w-5" />
                   Call Us Today
                 </a>
