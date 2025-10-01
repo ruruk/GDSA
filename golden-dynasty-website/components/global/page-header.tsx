@@ -16,7 +16,7 @@ export default function PageHeader({
       {/* Background Image */}
       <Image
         src={backgroundImage}
-        alt=""
+        alt={`${title} - Golden Dynasty SA`}
         fill
         className="object-cover"
         priority

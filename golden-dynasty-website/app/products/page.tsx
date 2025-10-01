@@ -180,7 +180,7 @@ const products = [
       "Aluminum conductivity",
       "Corrosion protection",
     ],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/ACS Wires.png",
   },
   {
     id: 15,
@@ -189,7 +189,7 @@ const products = [
     description:
       "High-performance RF cables for communication and broadcasting applications in power systems.",
     specs: ["Low loss design", "50/75 ohm impedance", "Weather resistant"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Radio Frequency Cable.png",
   },
   {
     id: 16,
@@ -198,7 +198,7 @@ const products = [
     description:
       "Grounding and support wires essential for electrical safety and structural support.",
     specs: ["Galvanized steel", "High tensile strength", "Corrosion resistant"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Earth Wire & Guy Wire.png",
   },
   {
     id: 17,
@@ -349,7 +349,7 @@ export default function ProductsPage() {
                       <div className="h-48 relative overflow-hidden">
                         <img
                           src={product.image || "/placeholder.svg"}
-                          alt={product.name}
+                          alt={`${product.name} - Golden Dynasty SA`}
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
