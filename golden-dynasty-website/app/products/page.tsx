@@ -17,7 +17,7 @@ const products = [
     description:
       "High-quality optical fiber cables for telecommunications and data transmission applications.",
     specs: ["Single/Multi-mode", "Low attenuation", "High bandwidth"],
-    image: "/products/Optical Fibre (OPGW, ADSS, Duct, Fibres).png",
+    image: "/products/Optical Fibre.png",
   },
   {
     id: 19,
@@ -57,16 +57,11 @@ const products = [
   },
   {
     id: 2,
-    name: "Power Line Industry Insulators",
+    name: "Glass Disc Insulators",
     categories: ["Various Insulators"],
-    description:
-      "Specialized insulators for power transmission and distribution systems, engineered for reliability and longevity.",
-    specs: [
-      "High dielectric strength",
-      "UV resistant",
-      "Multiple voltage ratings",
-    ],
-    image: "/products/Power Line Industry Insulators.png",
+    description: "N/A",
+    specs: ["N/A"],
+    image: "/products/Glass Disc Insulators.png",
   },
 
   // Electrical Equipment

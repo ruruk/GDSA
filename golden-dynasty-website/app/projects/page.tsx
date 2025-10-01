@@ -38,7 +38,7 @@ const flagshipProjects = [
     description: "Western Cape transmission network enhancement",
   },
   {
-    name: "Ankerlig",
+    name: "Ankerlig Koeberg",
     distance: "96.9 km",
     type: "OPGW",
     description: "Western Cape transmission network enhancement",
@@ -46,7 +46,6 @@ const flagshipProjects = [
 ];
 
 const allProjects = [
-  { name: "Albany Project", distance: "57 km", type: "OPGW" },
   { name: "Nkomazi Figtree", distance: "24.5 km", type: "OPGW" },
   { name: "Boulders Karino", distance: "25 km", type: "OPGW" },
   { name: "Ndumo Nondabuyo", distance: "46.5 km", type: "OPGW" },
@@ -165,7 +164,7 @@ export default function ProjectsPage() {
                       <h3 className="text-xl font-semibold mb-3 group-hover:text-yellow-600 transition-colors">
                         {project.name}
                       </h3>
-                      <div className="flex items-center gap-2 mb-4">
+                      {/* <div className="flex items-center gap-2 mb-4">
                         <Ruler className="h-4 w-4 text-muted-foreground" />
                         <span className="text-2xl font-bold text-yellow-600">
                           {project.distance}
@@ -173,7 +172,7 @@ export default function ProjectsPage() {
                       </div>
                       <p className="text-sm text-muted-foreground">
                         {project.description}
-                      </p>
+                      </p> */}
                     </GdsaCardContent>
                   </GdsaCard>
                 ))}
@@ -273,12 +272,12 @@ export default function ProjectsPage() {
                       </div> */}
 
                       {/* Status indicator */}
-                      <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
+                      {/* <div className="flex items-center gap-2 pt-3 border-t border-gray-100">
                         <Award className="h-4 w-4 text-yellow-500" />
                         <span className="text-sm font-medium text-green-600">
                           Completed
                         </span>
-                      </div>
+                      </div> */}
                     </GdsaCardContent>
                   </GdsaCard>
                 );

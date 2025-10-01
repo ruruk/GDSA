@@ -65,7 +65,6 @@ const equipmentCategories = [
     title: "Gripping Tools",
     icon: Wrench,
     items: [
-      "Radial Locking Grip",
       "OPGW regulation alu. clamps",
       "Bolt Type Anti Twist Steel Rope Gripper",
       "Anti Twisting Braided Steel Rope",
@@ -192,6 +191,20 @@ export default function RentalsPage() {
           </div>
         </section>
 
+        <section className="py-12 bg-background border-t border-yellow-500/20">
+          <div className="max-w-container mx-auto px-6 lg:px-8 text-center">
+            <div className="bg-yellow-500/5 border border-yellow-500/20 rounded-2xl p-8">
+              <h3 className="text-xl font-semibold text-yellow-700 mb-4">
+                Quality Assurance
+              </h3>
+              <p className="text-muted-foreground text-lg font-medium">
+                ALL EQUIPMENT & TOOLS ARE INSPECTED & TESTED EVERY 3 MONTHS AS
+                PER ESKOM / NTCSA REQUIREMENTS
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 bg-gradient-to-r from-yellow-500/10 to-blue-500/10">
           <div className="max-w-container mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold mb-4">
@@ -209,20 +222,6 @@ export default function RentalsPage() {
                 Discuss Your Requirements
               </GdsaButton>
             </Link>
-          </div>
-        </section>
-
-        <section className="py-12 bg-background border-t border-yellow-500/20">
-          <div className="max-w-container mx-auto px-6 lg:px-8 text-center">
-            <div className="bg-yellow-500/5 border border-yellow-500/20 rounded-2xl p-8">
-              <h3 className="text-xl font-semibold text-yellow-700 mb-4">
-                Quality Assurance
-              </h3>
-              <p className="text-muted-foreground text-lg font-medium">
-                ALL EQUIPMENT & TOOLS ARE INSPECTED & TESTED EVERY 3 MONTHS AS
-                PER ESKOM / NTCSA REQUIREMENTS
-              </p>
-            </div>
           </div>
         </section>
       </main>

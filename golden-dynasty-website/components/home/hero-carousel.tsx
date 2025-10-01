@@ -56,9 +56,9 @@ const slides = [
     subtitle: "Global Standards, Local Expertise",
     description:
       "Golden Dynasty SA is ISO 9001:2015 certified, CIDB certiication, and a BEE contributor, ensuring compliance and quality in every project.",
-    backgroundImage: "/construction-site-with-engineers-and-project-manag.jpg",
-    ctaText: "Our Accreditations",
-    ctaLink: "/accreditation",
+    backgroundImage: "/AdobeStock_135083942.jpeg",
+    ctaText: "About Us",
+    ctaLink: "/about",
     gradient: "from-green-900/85 via-green-800/70 to-transparent",
     icon: Award,
   },
