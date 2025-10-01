@@ -30,7 +30,7 @@ const products = [
       "Precision control",
       "Durable construction",
     ],
-    image: "/products/Stringing Equipment (Tensioner/Puller).png",
+    image: "/products/Stringing Equipment TensionePuller.png",
   },
   {
     id: 20,
@@ -53,7 +53,7 @@ const products = [
       "Porcelain/Composite options",
       "Weather resistant",
     ],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Porcelain & Composite Insulators.png",
   },
   {
     id: 2,
@@ -66,7 +66,7 @@ const products = [
       "UV resistant",
       "Multiple voltage ratings",
     ],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/products/Power Line Industry Insulators.png",
   },
 
   // Electrical Equipment
@@ -350,7 +350,7 @@ export default function ProductsPage() {
                         <img
                           src={product.image || "/placeholder.svg"}
                           alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
                       </div>
