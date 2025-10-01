@@ -21,7 +21,7 @@ const products = [
   },
   {
     id: 19,
-    name: "Stringing Equipment (Tensioner/Puller)",
+    name: "Stringing Equipment (Tensioner)",
     categories: ["Equipment"],
     description:
       "Professional stringing equipment including tensioners and pullers for efficient cable installation and maintenance.",
@@ -30,7 +30,20 @@ const products = [
       "Precision control",
       "Durable construction",
     ],
-    image: "/products/Stringing Equipment TensionePuller.png",
+    image: "/products/Stringing Equipment (Tensioner).png",
+  },
+  {
+    id: 19,
+    name: "Stringing Equipment (Puller)",
+    categories: ["Equipment"],
+    description:
+      "Professional stringing equipment including tensioners and pullers for efficient cable installation and maintenance.",
+    specs: [
+      "High tension capacity",
+      "Precision control",
+      "Durable construction",
+    ],
+    image: "/products/Stringing Equipment (Puller).png",
   },
   {
     id: 20,
