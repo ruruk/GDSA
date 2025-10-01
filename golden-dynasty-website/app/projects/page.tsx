@@ -246,7 +246,7 @@ export default function ProjectsPage() {
                       </h3>
 
                       {/* Distance with enhanced styling */}
-                      <div className="flex items-center gap-2 mb-4">
+                      {/* <div className="flex items-center gap-2 mb-4">
                         <div className="p-2 bg-blue-500/10 rounded-lg">
                           <Ruler className="h-4 w-4 text-blue-600" />
                         </div>
@@ -270,7 +270,7 @@ export default function ProjectsPage() {
                               : "Local Project"}
                           </p>
                         </div>
-                      </div>
+                      </div> */}
 
                       {/* Status indicator */}
                       <div className="flex items-center gap-2 pt-3 border-t border-gray-100">

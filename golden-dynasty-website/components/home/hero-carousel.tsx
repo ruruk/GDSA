@@ -55,7 +55,7 @@ const slides = [
     title: "ISO • CIDB • BEE Accredited",
     subtitle: "Global Standards, Local Expertise",
     description:
-      "Golden Dynasty SA is ISO 9001:2015 certified, CIDB 7EP graded, and a BEE Level 3 contributor, ensuring compliance and quality in every project.",
+      "Golden Dynasty SA is ISO 9001:2015 certified, CIDB certiication, and a BEE contributor, ensuring compliance and quality in every project.",
     backgroundImage: "/construction-site-with-engineers-and-project-manag.jpg",
     ctaText: "Our Accreditations",
     ctaLink: "/accreditation",
