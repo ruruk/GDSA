@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import {
   Mail,
   Phone,
@@ -10,6 +13,8 @@ import {
   Shield,
   Users,
 } from "lucide-react";
+import PrivacyPolicyModal from "./privacy-policy-modal";
+import TermsModal from "./terms-modal";
 
 const navigation = {
   company: [
@@ -26,9 +31,9 @@ const navigation = {
   ],
   support: [
     { name: "Contact Us", href: "/contact" },
-    { name: "Recruitments", href: "/recruitments" },
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
+    // { name: "Recruitments", href: "/recruitments" },
+    { name: "Privacy Policy", href: "#", modal: "privacy" },
+    { name: "Terms of Service", href: "#", modal: "terms" },
   ],
 };
 
@@ -39,173 +44,191 @@ const credentials = [
 ];
 
 export default function Footer() {
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+  const [isTermsModalOpen, setIsTermsModalOpen] = useState(false);
+
+  const handleModalClick = (modalType: string) => {
+    if (modalType === "privacy") {
+      setIsPrivacyModalOpen(true);
+    } else if (modalType === "terms") {
+      setIsTermsModalOpen(true);
+    }
+  };
+
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,215,0,0.1),transparent_50%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,215,0,0.05),transparent_50%)] pointer-events-none" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-golden/50 to-transparent" />
+    <>
+      <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,215,0,0.1),transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,215,0,0.05),transparent_50%)] pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-golden/50 to-transparent" />
 
-      <div className="relative mx-auto max-w-container px-6 pb-8 pt-16 lg:px-8 lg:pt-9">
-        <div className="mb-12 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative group">
-              <Image
-                src="/images/golden-dynasty-logo.png"
-                alt="Golden Dynasty SA"
-                width={280}
-                height={70}
-                className="h-16 w-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl"
-                priority
-              />
-              <div className="absolute inset-0 bg-golden/20 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 scale-125" />
-            </div>
-          </div>
-
-          <h2 className="text-3xl font-bold text-white mb-3 bg-gradient-to-r from-white via-golden-light to-white bg-clip-text text-transparent">
-            Powering South Africa's Future
-          </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Leading infrastructure development with excellence, innovation, and
-            social responsibility since 1997
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-3 mt-6">
-            {credentials.map((credential, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-golden/30 rounded-full px-3 py-1.5 text-sm text-white hover:bg-golden/20 transition-all duration-300"
-              >
-                <credential.icon className="h-3.5 w-3.5 text-golden" />
-                <span>{credential.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Company */}
-          <div>
-            <h3 className="text-lg font-bold text-white mb-4">Company</h3>
-            <ul className="space-y-2">
-              {navigation.company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-slate-300 hover:text-golden transition-colors duration-300 text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-bold text-white mb-4">Services</h3>
-            <ul className="space-y-2">
-              {navigation.services.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-slate-300 hover:text-golden transition-colors duration-300 text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h3 className="text-lg font-bold text-white mb-4">Support</h3>
-            <ul className="space-y-2">
-              {navigation.support.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-slate-300 hover:text-golden transition-colors duration-300 text-sm"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-golden" />
-                <span className="text-slate-300 text-sm">
-                  Tel. 079-377 7186 / 061-2895338
-                </span>
-              </div>
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-golden" />
-                  <span className="text-slate-300 text-sm">
-                    gordon@goldendynasty.co.za
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-golden" />
-                  <span className="text-slate-300 text-sm">
-                    melanie@goldendynasty.co.za
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-golden" />
-                <span className="text-slate-300 text-sm">
-                  Johannesburg, South Africa
-                </span>
-              </div>
-
-              <div className="flex gap-2 pt-2">
-                <Link
-                  href="#"
-                  className="bg-white/10 hover:bg-golden/20 p-2 rounded-lg transition-all duration-300"
-                >
-                  <Facebook className="h-4 w-4 text-slate-300 hover:text-golden transition-colors duration-300" />
-                </Link>
-                <Link
-                  href="#"
-                  className="bg-white/10 hover:bg-golden/20 p-2 rounded-lg transition-all duration-300"
-                >
-                  <Linkedin className="h-4 w-4 text-slate-300 hover:text-golden transition-colors duration-300" />
-                </Link>
+        <div className="relative mx-auto max-w-container px-6 pb-8 pt-16 lg:px-8 lg:pt-9">
+          <div className="mb-12 text-center">
+            <div className="flex justify-center mb-6">
+              <div className="relative group">
+                <Image
+                  src="/images/golden-dynasty-logo.png"
+                  alt="Golden Dynasty SA"
+                  width={280}
+                  height={70}
+                  className="h-16 w-auto transition-all duration-500 group-hover:scale-105 drop-shadow-2xl"
+                  priority
+                />
+                <div className="absolute inset-0 bg-golden/20 rounded-3xl blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 scale-125" />
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="border-t border-golden/20 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-sm">
-              &copy; 2024 Golden Dynasty SA (Pty) Ltd. All rights reserved.
+            <h2 className="text-3xl font-bold text-white mb-3 bg-gradient-to-r from-white via-golden-light to-white bg-clip-text text-transparent">
+              Powering South Africa's Future
+            </h2>
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              Leading infrastructure development with excellence, innovation,
+              and social responsibility since 1997
             </p>
-            <div className="flex items-center gap-6 text-sm text-slate-400">
-              <Link
-                href="/privacy"
-                className="hover:text-golden transition-colors duration-300"
-              >
-                Privacy Policy
-              </Link>
-              <span className="w-px h-4 bg-slate-600" />
-              <Link
-                href="/terms"
-                className="hover:text-golden transition-colors duration-300"
-              >
-                Terms of Service
-              </Link>
+
+            <div className="flex flex-wrap justify-center gap-3 mt-6">
+              {credentials.map((credential, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-golden/30 rounded-full px-3 py-1.5 text-sm text-white hover:bg-golden/20 transition-all duration-300"
+                >
+                  <credential.icon className="h-3.5 w-3.5 text-golden" />
+                  <span>{credential.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* Company */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-4">Company</h3>
+              <ul className="space-y-2">
+                {navigation.company.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-slate-300 hover:text-golden transition-colors duration-300 text-sm"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-4">Services</h3>
+              <ul className="space-y-2">
+                {navigation.services.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-slate-300 hover:text-golden transition-colors duration-300 text-sm"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Support */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-4">Support</h3>
+              <ul className="space-y-2">
+                {navigation.support.map((item) => (
+                  <li key={item.name}>
+                    {item.modal ? (
+                      <button
+                        onClick={() => handleModalClick(item.modal!)}
+                        className="text-slate-300 hover:text-golden transition-colors duration-300 text-sm text-left"
+                      >
+                        {item.name}
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-slate-300 hover:text-golden transition-colors duration-300 text-sm"
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-golden" />
+                  <span className="text-slate-300 text-sm">
+                    Tel. 079-377 7186 / 061-2895338
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-golden" />
+                    <span className="text-slate-300 text-sm">
+                      gordon@goldendynasty.co.za
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-golden" />
+                    <span className="text-slate-300 text-sm">
+                      melanie@goldendynasty.co.za
+                    </span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-golden" />
+                  <span className="text-slate-300 text-sm">
+                    Johannesburg, South Africa
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-golden/20 pt-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-slate-400 text-sm">
+                &copy; {new Date().getFullYear()} Golden Dynasty SA (Pty) Ltd.
+                All rights reserved.
+              </p>
+              <div className="flex items-center gap-6 text-sm text-slate-400">
+                <button
+                  onClick={() => handleModalClick("privacy")}
+                  className="hover:text-golden transition-colors duration-300"
+                >
+                  Privacy Policy
+                </button>
+                <span className="w-px h-4 bg-slate-600" />
+                <button
+                  onClick={() => handleModalClick("terms")}
+                  className="hover:text-golden transition-colors duration-300"
+                >
+                  Terms of Service
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+
+      {/* Modals */}
+      <PrivacyPolicyModal
+        isOpen={isPrivacyModalOpen}
+        onClose={() => setIsPrivacyModalOpen(false)}
+      />
+      <TermsModal
+        isOpen={isTermsModalOpen}
+        onClose={() => setIsTermsModalOpen(false)}
+      />
+    </>
   );
 }

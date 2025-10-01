@@ -2,7 +2,6 @@ import type React from "react";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import Script from "next/script";
 import "./globals.css";
@@ -258,22 +257,40 @@ export default function RootLayout({
         <link rel="preload" href="/og-image.png" as="image" />
         <link rel="preload" href="/images/golden-dynasty-logo.png" as="image" />
 
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GA_MEASUREMENT_ID', {
-              page_title: document.title,
-              page_location: window.location.href,
-            });
-          `}
-        </Script>
+        {/* Google Analytics - Optimized for Static Hosting */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+              async
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                  page_title: document.title,
+                  page_location: window.location.href,
+                  send_page_view: true,
+                  anonymize_ip: true,
+                  cookie_flags: 'SameSite=None;Secure',
+                  transport_type: 'beacon',
+                  allow_google_signals: false,
+                  allow_ad_personalization_signals: false,
+                });
+                
+                // Enhanced tracking for static sites
+                gtag('event', 'page_view', {
+                  page_title: document.title,
+                  page_location: window.location.href,
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        )}
 
         {/* Structured Data - Organization */}
         <Script
@@ -508,7 +525,6 @@ export default function RootLayout({
         className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
       >
         <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
       </body>
     </html>
   );

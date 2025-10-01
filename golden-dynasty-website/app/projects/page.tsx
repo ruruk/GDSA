@@ -286,24 +286,6 @@ export default function ProjectsPage() {
             </div>
           </div>
         </section>
-
-        <section className="py-16 bg-gradient-to-r from-yellow-500/10 to-blue-500/10">
-          <div className="container mx-auto px-4 max-w-container text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Ready for Your Next Project?
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              With over 50 major projects completed, Golden Dynasty SA brings
-              proven expertise to every infrastructure challenge.
-            </p>
-            <GdsaButton
-              size="lg"
-              className="bg-yellow-600 hover:bg-yellow-700 rounded-2xl px-8"
-            >
-              Start Your Project
-            </GdsaButton>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
